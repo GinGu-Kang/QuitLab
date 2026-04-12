@@ -1,0 +1,256 @@
+[
+  {
+    "id": "capital",
+    "question": "창업에 쓸 수 있는 돈이 얼마야?",
+    "options": [
+      {
+        "text": "500만~1,000만원",
+        "value": 1000,
+        "icon": "🪙"
+      },
+      {
+        "text": "1,000~3,000만원",
+        "value": 3000,
+        "icon": "💵"
+      },
+      {
+        "text": "3,000~7,000만원",
+        "value": 7000,
+        "icon": "💰"
+      },
+      {
+        "text": "7,000만~1.5억",
+        "value": 15000,
+        "icon": "🏦"
+      },
+      {
+        "text": "1.5억 이상",
+        "value": 30000,
+        "icon": "🏛️"
+      }
+    ]
+  },
+  {
+    "id": "loan",
+    "question": "소상공인 정책자금/대출도 활용할 의향 있어?",
+    "helper": "활용하면 실질 투자가능금액을 1억원까지 더 볼게요.",
+    "options": [
+      {
+        "text": "적극 활용",
+        "value": true,
+        "icon": "✅"
+      },
+      {
+        "text": "내 돈만으로 진행",
+        "value": false,
+        "icon": "🚫"
+      }
+    ]
+  },
+  {
+    "id": "timing",
+    "question": "언제쯤 퇴사할 생각이야?",
+    "options": [
+      {
+        "text": "이미 퇴사함 / 즉시",
+        "value": "now",
+        "icon": "🔥"
+      },
+      {
+        "text": "3개월 안",
+        "value": "3m",
+        "icon": "⏳"
+      },
+      {
+        "text": "6개월 안",
+        "value": "6m",
+        "icon": "📅"
+      },
+      {
+        "text": "1년 안",
+        "value": "1y",
+        "icon": "🗓️"
+      }
+    ]
+  },
+  {
+    "id": "family",
+    "question": "가족 상황은 어때?",
+    "options": [
+      {
+        "text": "1인 가구",
+        "value": "single",
+        "icon": "🧍"
+      },
+      {
+        "text": "맞벌이",
+        "value": "dual",
+        "icon": "👫"
+      },
+      {
+        "text": "외벌이 + 부양가족",
+        "value": "sole",
+        "icon": "👨‍👩‍👧"
+      }
+    ]
+  },
+  {
+    "id": "income",
+    "question": "한 달에 최소 얼마는 벌어야 해?",
+    "options": [
+      {
+        "text": "200~300만원",
+        "value": 300,
+        "icon": "📉"
+      },
+      {
+        "text": "300~500만원",
+        "value": 500,
+        "icon": "📊"
+      },
+      {
+        "text": "500~800만원",
+        "value": 800,
+        "icon": "📈"
+      },
+      {
+        "text": "800~1,000만원+",
+        "value": 1000,
+        "icon": "🚀"
+      }
+    ]
+  },
+  {
+    "id": "career",
+    "question": "직전 직종/경력은?",
+    "options": [
+      {
+        "text": "IT/개발",
+        "value": "it",
+        "icon": "💻"
+      },
+      {
+        "text": "마케팅/광고",
+        "value": "marketing",
+        "icon": "📢"
+      },
+      {
+        "text": "영업/세일즈",
+        "value": "sales",
+        "icon": "🤝"
+      },
+      {
+        "text": "금융/회계",
+        "value": "finance",
+        "icon": "💰"
+      },
+      {
+        "text": "제조/생산",
+        "value": "manufacturing",
+        "icon": "🏭"
+      },
+      {
+        "text": "디자인/크리에이티브",
+        "value": "design",
+        "icon": "🎨"
+      },
+      {
+        "text": "요리/식품",
+        "value": "food",
+        "icon": "🍳"
+      },
+      {
+        "text": "교육/강의",
+        "value": "education",
+        "icon": "📚"
+      },
+      {
+        "text": "의료/건강",
+        "value": "medical",
+        "icon": "🏥"
+      },
+      {
+        "text": "물류/유통",
+        "value": "logistics",
+        "icon": "📦"
+      },
+      {
+        "text": "부동산",
+        "value": "realestate",
+        "icon": "🏠"
+      },
+      {
+        "text": "공무원/공공",
+        "value": "public",
+        "icon": "🏛️"
+      },
+      {
+        "text": "서비스직",
+        "value": "service",
+        "icon": "🛎️"
+      },
+      {
+        "text": "사무/경영지원",
+        "value": "office",
+        "icon": "📋"
+      }
+    ]
+  },
+  {
+    "id": "region",
+    "question": "어디서 창업할 생각이야?",
+    "options": [
+      {
+        "text": "수도권",
+        "value": "metro",
+        "icon": "🏙️"
+      },
+      {
+        "text": "광역시",
+        "value": "city",
+        "icon": "🌆"
+      },
+      {
+        "text": "중소도시",
+        "value": "town",
+        "icon": "🏘️"
+      },
+      {
+        "text": "농어촌/지방",
+        "value": "rural",
+        "icon": "🌾"
+      }
+    ]
+  },
+  {
+    "id": "license",
+    "question": "가지고 있는 자격증/면허 있어?",
+    "options": [
+      {
+        "text": "없음",
+        "value": "none",
+        "icon": "❌"
+      },
+      {
+        "text": "식품/조리 관련",
+        "value": "food",
+        "icon": "🍴"
+      },
+      {
+        "text": "미용/이용",
+        "value": "beauty",
+        "icon": "💇"
+      },
+      {
+        "text": "공인중개사 등 전문",
+        "value": "pro",
+        "icon": "📜"
+      },
+      {
+        "text": "기타",
+        "value": "etc",
+        "icon": "📝"
+      }
+    ]
+  }
+]

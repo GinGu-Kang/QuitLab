@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model UserResult {
+  id                 String      @id @default(cuid())
+  sessionId          String      @unique
+  nickname           String?
+  createdAt          DateTime    @default(now())
+  hardFilterInputs   Json
+  competencyScores   Json
+  personalityAnswers Json
+  top5Results        Json
+  comicImageUrl      String?
+  userAgent          String?
+  ipHash             String?
+  userContact        UserContact?
+}
+
+model UserContact {
+  id                 String     @id @default(cuid())
+  userResultId       String     @unique
+  userResult         UserResult @relation(fields: [userResultId], references: [id], onDelete: Cascade)
+  name               String
+  email              String
+  phoneEncrypted     String
+  phoneHash          String
+  privacyConsent     Boolean    @default(false)
+  privacyConsentAt   DateTime?
+  marketingConsent   Boolean    @default(false)
+  marketingConsentAt DateTime?
+  consentIpHash      String?
+  consentUserAgent   String?
+  unsubscribedAt     DateTime?
+  unsubscribeToken   String     @unique @default(cuid())
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+
+  @@index([email])
+  @@index([phoneHash])
+}
+
+model AnalyticsEvent {
+  id        String   @id @default(cuid())
+  sessionId String
+  eventType String
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  @@index([sessionId])
+  @@index([eventType])
+  @@index([createdAt])
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "competency": "analytical",
+    "competencyIndex": 0,
+    "name": "분석적 사고력",
+    "definition": "데이터를 해석하고, 문제를 구조화하며, 논리적으로 의사결정하는 능력",
+    "examples": "시장분석, 원가계산, 수익모델 설계, 경쟁사 비교, KPI 설정",
+    "scoringCriteria": "1점: 낯설고 실행이 어렵다 · 3점: 도움을 받으면 가능하다 · 5점: 혼자 설계하고 반복 실행할 수 있다"
+  },
+  {
+    "competency": "creativity",
+    "competencyIndex": 1,
+    "name": "창의력",
+    "definition": "새로운 아이디어를 발상하고, 기존 것을 재조합하여 차별화된 가치를 만드는 능력",
+    "examples": "메뉴개발, 브랜딩, 공간디자인, 콘텐츠기획, 상품기획",
+    "scoringCriteria": "1점: 낯설고 실행이 어렵다 · 3점: 도움을 받으면 가능하다 · 5점: 혼자 설계하고 반복 실행할 수 있다"
+  },
+  {
+    "competency": "interpersonal",
+    "competencyIndex": 2,
+    "name": "대인관계 능력",
+    "definition": "고객·파트너·직원과 신뢰를 쌓고, 협상하고, 갈등을 관리하는 능력",
+    "examples": "고객응대, 파트너십, 직원관리, 네트워킹, 민원대응",
+    "scoringCriteria": "1점: 낯설고 실행이 어렵다 · 3점: 도움을 받으면 가능하다 · 5점: 혼자 설계하고 반복 실행할 수 있다"
+  },
+  {
+    "competency": "tech",
+    "competencyIndex": 3,
+    "name": "기술 활용 능력",
+    "definition": "IT 도구, 플랫폼, 자동화 시스템 등을 업무에 효과적으로 활용하는 능력",
+    "examples": "쇼핑몰 구축, SNS마케팅, POS시스템, 개발, 데이터분석",
+    "scoringCriteria": "1점: 낯설고 실행이 어렵다 · 3점: 도움을 받으면 가능하다 · 5점: 혼자 설계하고 반복 실행할 수 있다"
+  },
+  {
+    "competency": "sales",
+    "competencyIndex": 4,
+    "name": "영업/세일즈 능력",
+    "definition": "상품·서비스를 설득력 있게 제안하고 매출로 전환하는 능력",
+    "examples": "B2B영업, 고객유치, 제안서작성, 클로징, 가격협상",
+    "scoringCriteria": "1점: 낯설고 실행이 어렵다 · 3점: 도움을 받으면 가능하다 · 5점: 혼자 설계하고 반복 실행할 수 있다"
+  },
+  {
+    "competency": "selfManagement",
+    "competencyIndex": 5,
+    "name": "자기관리/규율",
+    "definition": "스스로 목표를 세우고, 시간·에너지를 관리하며, 꾸준히 실행하는 능력",
+    "examples": "일정관리, 루틴유지, 번아웃방지, 멀티태스킹, 마감준수",
+    "scoringCriteria": "1점: 낯설고 실행이 어렵다 · 3점: 도움을 받으면 가능하다 · 5점: 혼자 설계하고 반복 실행할 수 있다"
+  },
+  {
+    "competency": "risk",
+    "competencyIndex": 6,
+    "name": "리스크 감수 성향",
+    "definition": "불확실성을 견디고, 계산된 위험을 감수하며, 실패에서 회복하는 성향",
+    "examples": "초기투자결정, 신사업진출, 재고리스크, 확장결정",
+    "scoringCriteria": "1점: 낯설고 실행이 어렵다 · 3점: 도움을 받으면 가능하다 · 5점: 혼자 설계하고 반복 실행할 수 있다"
+  },
+  {
+    "competency": "trend",
+    "competencyIndex": 7,
+    "name": "트렌드 민감도",
+    "definition": "시장·소비자·기술 트렌드를 빠르게 포착하고 비즈니스에 반영하는 능력",
+    "examples": "유행상품발굴, SNS트렌드, 소비자행동변화, 신기술도입",
+    "scoringCriteria": "1점: 낯설고 실행이 어렵다 · 3점: 도움을 받으면 가능하다 · 5점: 혼자 설계하고 반복 실행할 수 있다"
+  },
+  {
+    "competency": "stamina",
+    "competencyIndex": 8,
+    "name": "체력/지구력",
+    "definition": "장시간 노동, 현장업무, 반복작업을 감당할 수 있는 신체적·정신적 에너지",
+    "examples": "새벽출근, 육체노동, 장시간서서일하기, 정신적 스트레스",
+    "scoringCriteria": "1점: 낯설고 실행이 어렵다 · 3점: 도움을 받으면 가능하다 · 5점: 혼자 설계하고 반복 실행할 수 있다"
+  },
+  {
+    "competency": "finance",
+    "competencyIndex": 9,
+    "name": "재무관리 능력",
+    "definition": "현금흐름, 원가, 세금, 투자를 관리하고 재무적 의사결정을 하는 능력",
+    "examples": "손익계산, 세금신고, 자금조달, 투자결정, 원가관리",
+    "scoringCriteria": "1점: 낯설고 실행이 어렵다 · 3점: 도움을 받으면 가능하다 · 5점: 혼자 설계하고 반복 실행할 수 있다"
+  },
+  {
+    "competency": "leadership",
+    "competencyIndex": 10,
+    "name": "리더십/조직관리",
+    "definition": "팀을 구성하고, 동기부여하며, 성과를 이끌어내는 능력",
+    "examples": "채용, 교육, 성과관리, 갈등해결, 조직문화",
+    "scoringCriteria": "1점: 낯설고 실행이 어렵다 · 3점: 도움을 받으면 가능하다 · 5점: 혼자 설계하고 반복 실행할 수 있다"
+  },
+  {
+    "competency": "content",
+    "competencyIndex": 11,
+    "name": "콘텐츠/커뮤니케이션",
+    "definition": "메시지를 효과적으로 전달하고, 콘텐츠를 기획·제작하는 능력",
+    "examples": "SNS운영, 블로그, 영상제작, 카피라이팅, 뉴스레터",
+    "scoringCriteria": "1점: 낯설고 실행이 어렵다 · 3점: 도움을 받으면 가능하다 · 5점: 혼자 설계하고 반복 실행할 수 있다"
+  }
+]

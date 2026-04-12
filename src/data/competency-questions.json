@@ -1,0 +1,674 @@
+[
+  {
+    "id": 1,
+    "competency": "analytical",
+    "competencyIndex": 0,
+    "scenario": "경쟁 카페 5곳의 메뉴·가격·리뷰 데이터를 스프레드시트로 정리하고 우리 매장 포지셔닝 전략을 도출하라고 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "즐겁다, 바로 시작"
+      },
+      {
+        "score": 4,
+        "text": "할 수 있다, 시간 좀 걸림"
+      },
+      {
+        "score": 3,
+        "text": "누가 알려주면 가능"
+      },
+      {
+        "score": 2,
+        "text": "막막하지만 해보겠다"
+      },
+      {
+        "score": 1,
+        "text": "절대 못한다"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "competency": "analytical",
+    "competencyIndex": 0,
+    "scenario": "월말 매출이 지난달 대비 20% 하락했다. 원인을 분석하고 대응책을 세워야 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "데이터부터 뜯어보겠다"
+      },
+      {
+        "score": 4,
+        "text": "감은 있는데 정리는 어렵다"
+      },
+      {
+        "score": 3,
+        "text": "대충 짐작은 간다"
+      },
+      {
+        "score": 2,
+        "text": "어디서부터 봐야할지 모르겠다"
+      },
+      {
+        "score": 1,
+        "text": "그냥 다음달 잘하면 되지"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "competency": "creativity",
+    "competencyIndex": 1,
+    "scenario": "똑같은 동네에 카페가 3개 더 생겼다. 차별화 전략을 3가지 이상 즉석에서 제안해보라면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "5개 이상 바로 떠오른다"
+      },
+      {
+        "score": 4,
+        "text": "3개는 낼 수 있다"
+      },
+      {
+        "score": 3,
+        "text": "1~2개 겨우"
+      },
+      {
+        "score": 2,
+        "text": "남이 하는 거 참고해야"
+      },
+      {
+        "score": 1,
+        "text": "아이디어가 안 떠오른다"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "competency": "creativity",
+    "competencyIndex": 1,
+    "scenario": "기존 제품에 새로운 포장/서비스 컨셉을 입혀 리브랜딩해야 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "흥분된다, 아이디어 넘침"
+      },
+      {
+        "score": 4,
+        "text": "재미있겠다, 해볼만"
+      },
+      {
+        "score": 3,
+        "text": "누가 방향 잡아주면 따라감"
+      },
+      {
+        "score": 2,
+        "text": "막막하다"
+      },
+      {
+        "score": 1,
+        "text": "나는 실행형이지 기획형이 아니다"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "competency": "interpersonal",
+    "competencyIndex": 2,
+    "scenario": "납품처 사장님이 갑자기 단가를 10% 깎자고 한다. 어떻게 대응하겠는가?",
+    "options": [
+      {
+        "score": 5,
+        "text": "윈윈안을 제시하며 협상"
+      },
+      {
+        "score": 4,
+        "text": "부드럽게 거절 후 대안 탐색"
+      },
+      {
+        "score": 3,
+        "text": "일단 수용하고 나중에 조정"
+      },
+      {
+        "score": 2,
+        "text": "화가 나지만 참는다"
+      },
+      {
+        "score": 1,
+        "text": "갈등이 싫어 그냥 수용"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "competency": "interpersonal",
+    "competencyIndex": 2,
+    "scenario": "처음 만난 거래처 담당자와 30분 만에 신뢰를 쌓아야 하는 미팅이 있다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "자신있다, 스몰토크부터"
+      },
+      {
+        "score": 4,
+        "text": "준비하면 할 수 있다"
+      },
+      {
+        "score": 3,
+        "text": "좀 긴장되지만 가능"
+      },
+      {
+        "score": 2,
+        "text": "매우 불편하지만 해야지"
+      },
+      {
+        "score": 1,
+        "text": "피하고 싶다"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "competency": "tech",
+    "competencyIndex": 3,
+    "scenario": "배달앱 입점, POS시스템 세팅, 인스타 광고 셋업을 혼자 해야 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "전부 독학으로 가능"
+      },
+      {
+        "score": 4,
+        "text": "대부분 가능, 일부 도움 필요"
+      },
+      {
+        "score": 3,
+        "text": "절반은 할 수 있다"
+      },
+      {
+        "score": 2,
+        "text": "거의 다 누군가 도와줘야"
+      },
+      {
+        "score": 1,
+        "text": "기계치에 가깝다"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "competency": "tech",
+    "competencyIndex": 3,
+    "scenario": "엑셀로 매출 대시보드를 만들거나, 간단한 웹사이트를 직접 수정해야 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "능숙하다"
+      },
+      {
+        "score": 4,
+        "text": "시간 들이면 된다"
+      },
+      {
+        "score": 3,
+        "text": "유튜브 보면서 따라할 수준"
+      },
+      {
+        "score": 2,
+        "text": "매우 어렵다"
+      },
+      {
+        "score": 1,
+        "text": "불가능하다"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "competency": "sales",
+    "competencyIndex": 4,
+    "scenario": "전혀 모르는 기업 담당자에게 콜드콜을 해서 우리 서비스를 소개해야 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "기꺼이 한다, 잘한다"
+      },
+      {
+        "score": 4,
+        "text": "부담되지만 할 수 있다"
+      },
+      {
+        "score": 3,
+        "text": "대본 있으면 가능"
+      },
+      {
+        "score": 2,
+        "text": "극도로 부담된다"
+      },
+      {
+        "score": 1,
+        "text": "절대 못한다"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "competency": "sales",
+    "competencyIndex": 4,
+    "scenario": "오늘 하루 매장 앞을 지나가는 100명에게 시식/체험을 권해야 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "즐겁게 할 수 있다"
+      },
+      {
+        "score": 4,
+        "text": "처음엔 어색하지만 적응"
+      },
+      {
+        "score": 3,
+        "text": "5~10명이 한계"
+      },
+      {
+        "score": 2,
+        "text": "못할 것 같다"
+      },
+      {
+        "score": 1,
+        "text": "차라리 퇴사 안 한다"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "competency": "selfManagement",
+    "competencyIndex": 5,
+    "scenario": "혼자 일하는데 오늘 컨디션이 최악이다. 그래도 해야 할 일이 쌓여 있다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "무조건 한다, 루틴은 지킨다"
+      },
+      {
+        "score": 4,
+        "text": "최소한은 한다"
+      },
+      {
+        "score": 3,
+        "text": "중요한 것만 골라서"
+      },
+      {
+        "score": 2,
+        "text": "내일로 미룬다"
+      },
+      {
+        "score": 1,
+        "text": "쉰다"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "competency": "selfManagement",
+    "competencyIndex": 5,
+    "scenario": "6개월째 매출이 정체다. 매일 같은 일을 반복해야 하는 상황이라면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "개선점 찾으며 꾸준히"
+      },
+      {
+        "score": 4,
+        "text": "힘들지만 버틴다"
+      },
+      {
+        "score": 3,
+        "text": "슬슬 지친다"
+      },
+      {
+        "score": 2,
+        "text": "다른 걸 알아본다"
+      },
+      {
+        "score": 1,
+        "text": "포기하고 싶다"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "competency": "risk",
+    "competencyIndex": 6,
+    "scenario": "저축한 5천만원 중 3천만원을 창업에 투자해야 한다. 어떤 기분인가?",
+    "options": [
+      {
+        "score": 5,
+        "text": "당연한 투자, 망해도 복구 가능"
+      },
+      {
+        "score": 4,
+        "text": "긴장되지만 감수한다"
+      },
+      {
+        "score": 3,
+        "text": "절반만 넣고 싶다"
+      },
+      {
+        "score": 2,
+        "text": "매우 불안하다"
+      },
+      {
+        "score": 1,
+        "text": "돈 잃는 건 견딜 수 없다"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "competency": "risk",
+    "competencyIndex": 6,
+    "scenario": "사업 6개월차에 초기 투자금의 절반을 썼는데 아직 수익이 없다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "계획대로다, 버틴다"
+      },
+      {
+        "score": 4,
+        "text": "불안하지만 1년은 본다"
+      },
+      {
+        "score": 3,
+        "text": "전략을 대폭 수정한다"
+      },
+      {
+        "score": 2,
+        "text": "접는 걸 심각히 고민"
+      },
+      {
+        "score": 1,
+        "text": "즉시 손절한다"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "competency": "trend",
+    "competencyIndex": 7,
+    "scenario": "SNS에서 갑자기 특정 상품이 뜨고 있다. 우리 매장에 바로 적용할 수 있을까?",
+    "options": [
+      {
+        "score": 5,
+        "text": "이미 알고 있었고 준비 중"
+      },
+      {
+        "score": 4,
+        "text": "빨리 테스트해보겠다"
+      },
+      {
+        "score": 3,
+        "text": "조사부터 해야겠다"
+      },
+      {
+        "score": 2,
+        "text": "유행은 금방 지나가니 관망"
+      },
+      {
+        "score": 1,
+        "text": "트렌드에 관심 없다"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "competency": "trend",
+    "competencyIndex": 7,
+    "scenario": "매일 업계 뉴스/SNS/커뮤니티를 얼마나 체크하는가?",
+    "options": [
+      {
+        "score": 5,
+        "text": "매일 1시간 이상, 습관"
+      },
+      {
+        "score": 4,
+        "text": "주 3~4회 정기적으로"
+      },
+      {
+        "score": 3,
+        "text": "가끔 생각나면"
+      },
+      {
+        "score": 2,
+        "text": "거의 안 본다"
+      },
+      {
+        "score": 1,
+        "text": "전혀 안 본다"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "competency": "stamina",
+    "competencyIndex": 8,
+    "scenario": "새벽 5시 출근 → 밤 10시 퇴근을 주 6일 3개월간 해야 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "해본 적 있고 버틸 수 있다"
+      },
+      {
+        "score": 4,
+        "text": "힘들지만 할 수 있다"
+      },
+      {
+        "score": 3,
+        "text": "주 5일이면 가능"
+      },
+      {
+        "score": 2,
+        "text": "1개월이 한계"
+      },
+      {
+        "score": 1,
+        "text": "체력적으로 불가능"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "competency": "stamina",
+    "competencyIndex": 8,
+    "scenario": "하루 8시간 서서 일하거나 반복적 육체노동을 해야 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "문제없다"
+      },
+      {
+        "score": 4,
+        "text": "적응 기간 필요"
+      },
+      {
+        "score": 3,
+        "text": "4시간이 한계"
+      },
+      {
+        "score": 2,
+        "text": "앉아서 하는 일이어야"
+      },
+      {
+        "score": 1,
+        "text": "육체노동은 절대 불가"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "competency": "finance",
+    "competencyIndex": 9,
+    "scenario": "월 매출 3000만원일 때 원가·인건비·임대료·세금을 제하면 실제 순이익이 얼마인지 바로 계산할 수 있는가?",
+    "options": [
+      {
+        "score": 5,
+        "text": "엑셀로 즉시 산출 가능"
+      },
+      {
+        "score": 4,
+        "text": "계산기 두드리면 된다"
+      },
+      {
+        "score": 3,
+        "text": "대충은 알겠다"
+      },
+      {
+        "score": 2,
+        "text": "세금 계산이 어렵다"
+      },
+      {
+        "score": 1,
+        "text": "전혀 모르겠다"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "competency": "finance",
+    "competencyIndex": 9,
+    "scenario": "부가세 신고, 종합소득세, 4대보험 처리를 직접 해야 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "혼자 가능하다"
+      },
+      {
+        "score": 4,
+        "text": "홈택스로 해봤다"
+      },
+      {
+        "score": 3,
+        "text": "세무사 없으면 불안"
+      },
+      {
+        "score": 2,
+        "text": "전혀 모른다"
+      },
+      {
+        "score": 1,
+        "text": "숫자만 보면 머리 아프다"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "competency": "leadership",
+    "competencyIndex": 10,
+    "scenario": "알바 직원 2명이 갑자기 싸우고 한 명이 그만두겠다고 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "즉시 중재하고 대안 마련"
+      },
+      {
+        "score": 4,
+        "text": "대화로 풀어보겠다"
+      },
+      {
+        "score": 3,
+        "text": "일단 진정시키고 보겠다"
+      },
+      {
+        "score": 2,
+        "text": "어떻게 해야 할지 모르겠다"
+      },
+      {
+        "score": 1,
+        "text": "사람 관리는 맞지 않는다"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "competency": "leadership",
+    "competencyIndex": 10,
+    "scenario": "5명 규모의 팀을 이끌며 각자 역할을 배분하고 성과를 관리해야 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "경험 있고 자신있다"
+      },
+      {
+        "score": 4,
+        "text": "해본 적은 없지만 할 수 있다"
+      },
+      {
+        "score": 3,
+        "text": "2~3명이 한계"
+      },
+      {
+        "score": 2,
+        "text": "혼자 일하는 게 낫다"
+      },
+      {
+        "score": 1,
+        "text": "관리 역할은 절대 싫다"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "competency": "content",
+    "competencyIndex": 11,
+    "scenario": "우리 매장을 소개하는 인스타 릴스 + 블로그 포스팅을 직접 만들어야 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "바로 기획·촬영·편집 가능"
+      },
+      {
+        "score": 4,
+        "text": "시간 들이면 할 수 있다"
+      },
+      {
+        "score": 3,
+        "text": "글은 되는데 영상은 어렵다"
+      },
+      {
+        "score": 2,
+        "text": "둘 다 어렵다"
+      },
+      {
+        "score": 1,
+        "text": "SNS 자체를 안 한다"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "competency": "content",
+    "competencyIndex": 11,
+    "scenario": "고객에게 보낼 뉴스레터나 프로모션 문구를 작성해야 한다면?",
+    "options": [
+      {
+        "score": 5,
+        "text": "재미있다, 바로 쓸 수 있다"
+      },
+      {
+        "score": 4,
+        "text": "참고할 게 있으면 가능"
+      },
+      {
+        "score": 3,
+        "text": "문장력에 자신 없다"
+      },
+      {
+        "score": 2,
+        "text": "매우 어렵다"
+      },
+      {
+        "score": 1,
+        "text": "글쓰기는 정말 싫다"
+      }
+    ]
+  }
+]

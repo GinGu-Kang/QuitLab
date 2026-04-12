@@ -1,0 +1,254 @@
+[
+  {
+    "id": 1,
+    "dimension": "업무 환경",
+    "question": "평일 하루를 어디서 보내고 싶은가?",
+    "choiceA": {
+      "text": "매장/현장에서 사람 만나며",
+      "favorableCategories": [
+        "F&B",
+        "건강/뷰티",
+        "생활서비스",
+        "반려동물"
+      ],
+      "icon": "🏪"
+    },
+    "choiceB": {
+      "text": "집/사무실에서 컴퓨터 앞에서",
+      "favorableCategories": [
+        "IT/테크",
+        "콘텐츠/미디어",
+        "전문서비스",
+        "온라인유통"
+      ],
+      "icon": "💻"
+    }
+  },
+  {
+    "id": 2,
+    "dimension": "일하는 방식",
+    "question": "혼자 일하는 것 vs 팀과 함께?",
+    "choiceA": {
+      "text": "팀원/직원과 함께 (리더 역할)",
+      "favorableCategories": [
+        "교육",
+        "생활서비스",
+        "제조",
+        "물류"
+      ],
+      "icon": "👥"
+    },
+    "choiceB": {
+      "text": "혼자서 끝까지 (1인 운영)",
+      "favorableCategories": [
+        "SaaS",
+        "콘텐츠",
+        "온라인쇼핑몰",
+        "무인/자동화"
+      ],
+      "icon": "🧍"
+    }
+  },
+  {
+    "id": 3,
+    "dimension": "수입 구조 선호",
+    "question": "안정적 월급형 vs 변동적 고수익형?",
+    "choiceA": {
+      "text": "매달 비슷한 수준 (안정형)",
+      "favorableCategories": [
+        "프랜차이즈",
+        "무인/자동화",
+        "전문서비스"
+      ],
+      "icon": "🪙"
+    },
+    "choiceB": {
+      "text": "들쭉날쭉해도 잭팟 가능 (성장형)",
+      "favorableCategories": [
+        "SaaS",
+        "앱",
+        "콘텐츠",
+        "AI솔루션",
+        "브랜드 런칭"
+      ],
+      "icon": "🚀"
+    }
+  },
+  {
+    "id": 4,
+    "dimension": "근무 시간",
+    "question": "정해진 시간 vs 자유 시간?",
+    "choiceA": {
+      "text": "출퇴근 시간이 정해져 있는 게 낫다",
+      "favorableCategories": [
+        "F&B",
+        "교육",
+        "건강/뷰티",
+        "생활서비스"
+      ],
+      "icon": "🕘"
+    },
+    "choiceB": {
+      "text": "내가 원할 때 일하고 싶다",
+      "favorableCategories": [
+        "온라인 비즈니스",
+        "콘텐츠",
+        "컨설팅",
+        "SaaS"
+      ],
+      "icon": "🕊️"
+    }
+  },
+  {
+    "id": 5,
+    "dimension": "주말/공휴일",
+    "question": "주말에 쉬는 게 중요한가?",
+    "choiceA": {
+      "text": "주말·공휴일 근무 OK",
+      "favorableCategories": [
+        "F&B",
+        "리테일",
+        "문화/엔터",
+        "여행/레저"
+      ],
+      "icon": "🗓️"
+    },
+    "choiceB": {
+      "text": "주말은 반드시 쉬어야",
+      "favorableCategories": [
+        "IT/테크",
+        "전문서비스",
+        "무인/자동화"
+      ],
+      "icon": "🛋️"
+    }
+  },
+  {
+    "id": 6,
+    "dimension": "체력 투입",
+    "question": "몸을 쓰는 일에 대한 태도?",
+    "choiceA": {
+      "text": "땀 흘리며 일하는 게 좋다",
+      "favorableCategories": [
+        "F&B",
+        "인테리어",
+        "이사",
+        "농업",
+        "헬스"
+      ],
+      "icon": "💪"
+    },
+    "choiceB": {
+      "text": "앉아서 머리 쓰는 게 좋다",
+      "favorableCategories": [
+        "IT",
+        "콘텐츠",
+        "컨설팅",
+        "금융",
+        "온라인"
+      ],
+      "icon": "🧠"
+    }
+  },
+  {
+    "id": 7,
+    "dimension": "성장 목표",
+    "question": "5년 후 사업 규모 기대치는?",
+    "choiceA": {
+      "text": "나 혼자 편하게 월 500 이상",
+      "favorableCategories": [
+        "무인/자동화",
+        "1인서비스",
+        "프리랜서형"
+      ],
+      "icon": "🙂"
+    },
+    "choiceB": {
+      "text": "직원 10명 이상, 법인 전환, 투자유치",
+      "favorableCategories": [
+        "SaaS",
+        "플랫폼",
+        "프랜차이즈본사",
+        "AI솔루션"
+      ],
+      "icon": "🏢"
+    }
+  },
+  {
+    "id": 8,
+    "dimension": "고객 접점",
+    "question": "매일 수십명의 고객을 직접 응대하는 것은?",
+    "choiceA": {
+      "text": "사람 만나는 게 에너지",
+      "favorableCategories": [
+        "F&B",
+        "교육",
+        "건강/뷰티",
+        "이벤트기획"
+      ],
+      "icon": "🤝"
+    },
+    "choiceB": {
+      "text": "에너지가 소모된다",
+      "favorableCategories": [
+        "무인",
+        "제조/OEM",
+        "IT",
+        "콘텐츠(1인)"
+      ],
+      "icon": "🔕"
+    }
+  },
+  {
+    "id": 9,
+    "dimension": "리스크 태도",
+    "question": "전 재산의 70%를 사업에 넣어야 한다면?",
+    "choiceA": {
+      "text": "할 수 있다, 확신이 있으면",
+      "favorableCategories": [
+        "브루어리",
+        "IoT",
+        "AI",
+        "부동산경매"
+      ],
+      "icon": "🎯"
+    },
+    "choiceB": {
+      "text": "절대 불가, 30% 이하만",
+      "favorableCategories": [
+        "스마트스토어",
+        "펫시터",
+        "온라인강의",
+        "무인"
+      ],
+      "icon": "🛡️"
+    }
+  },
+  {
+    "id": 10,
+    "dimension": "기술 의존도",
+    "question": "사업에 IT기술을 얼마나 활용하고 싶은가?",
+    "choiceA": {
+      "text": "기술이 핵심 경쟁력이어야",
+      "favorableCategories": [
+        "SaaS",
+        "앱",
+        "AI",
+        "IoT",
+        "데이터분석"
+      ],
+      "icon": "⚙️"
+    },
+    "choiceB": {
+      "text": "기술은 보조 수단이면 충분",
+      "favorableCategories": [
+        "F&B",
+        "공방",
+        "꽃집",
+        "마사지",
+        "부동산중개"
+      ],
+      "icon": "🎨"
+    }
+  }
+]

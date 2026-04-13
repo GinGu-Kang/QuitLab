@@ -146,6 +146,23 @@ node scripts/capture-all-screens.cjs
 node scripts/capture-admin-screens.cjs
 ```
 
+Git 푸시 안정화:
+
+이 저장소는 기본 설정으로 `git push` 시 GitHub `git-receive-pack (chunked)` 단계에서 HTTP 400이 날 수 있다.
+반드시 이 로컬 저장소 설정을 유지할 것.
+
+```bash
+git config http.version HTTP/1.1
+git config http.postBuffer 524288000
+```
+
+중요:
+
+- `main`에 올릴 때는 `git push origin HEAD:main`을 사용한다.
+- 일반 `git push`가 아니라 현재 HEAD를 명시적으로 `main`에 보내는 방식을 기본값으로 본다.
+- 푸시 전에는 `git fetch origin main`으로 원격 상태를 먼저 가져온다.
+- 만약 과거 API 동기화 등으로 로컬 히스토리와 원격 `main` 히스토리가 끊겨 있으면, 무작정 API 업로드로 덮지 말고 먼저 `origin/main`을 로컬 브랜치에 merge해서 히스토리를 다시 연결한다.
+
 ## 6. 현재 구현상 중요한 동작
 
 ### 저장소 계층은 fallback이 있다
@@ -227,7 +244,7 @@ fallback 파일:
 
 1. 하드 필터
    - 자본금 부족 업종 제외
-   - 자격증은 경고
+   - 필수 자격증이 없으면 제외
    - 지역, 퇴사시기, 가족상황, 희망수입은 감점
 2. 역량 적합도 계산
    - 12개 역량 gap 기반

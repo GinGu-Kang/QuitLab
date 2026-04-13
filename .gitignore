@@ -4,6 +4,7 @@ out
 coverage
 .vercel
 dist
+*.tsbuildinfo
 .local-data
 *.log
 .DS_Store

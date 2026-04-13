@@ -32,11 +32,12 @@ async function main() {
   await page.waitForTimeout(1000);
 
   await page.goto(`${baseUrl}/admin`, { waitUntil: 'networkidle' });
-  await page.waitForTimeout(1500);
+  await page.waitForSelector('text=관리자 모드', { timeout: 120000 });
+  await page.waitForSelector('text=전체 참여자', { timeout: 120000 });
   await save(page, '17-admin-dashboard');
 
   await page.goto(`${baseUrl}/admin/customers`, { waitUntil: 'networkidle' });
-  await page.waitForTimeout(1500);
+  await page.waitForSelector('text=고객 DB', { timeout: 120000 });
   await save(page, '18-admin-customers');
 
   await browser.close();

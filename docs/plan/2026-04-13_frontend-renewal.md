@@ -6,6 +6,17 @@
 > 전략: 7개 하위 Phase, 각각 별도 커밋
 > **원칙: 알고리즘/로직 변경 절대 금지. className, style, 토큰 등 순수 디자인만 수정**
 
+## 분할 실행 문서
+
+- 인덱스: [2026-04-13_frontend-renewal/README.md](/Users/gangjingu/project/Quit-codex/docs/plan/2026-04-13_frontend-renewal/README.md)
+- Phase 1: [phase-1-landing-redesign.md](/Users/gangjingu/project/Quit-codex/docs/plan/2026-04-13_frontend-renewal/phase-1-landing-redesign.md)
+- Phase 2: [phase-2-color-system.md](/Users/gangjingu/project/Quit-codex/docs/plan/2026-04-13_frontend-renewal/phase-2-color-system.md)
+- Phase 3: [phase-3-radius-unification.md](/Users/gangjingu/project/Quit-codex/docs/plan/2026-04-13_frontend-renewal/phase-3-radius-unification.md)
+- Phase 4: [phase-4-diagnose-step-design.md](/Users/gangjingu/project/Quit-codex/docs/plan/2026-04-13_frontend-renewal/phase-4-diagnose-step-design.md)
+- Phase 5: [phase-5-results-page-design.md](/Users/gangjingu/project/Quit-codex/docs/plan/2026-04-13_frontend-renewal/phase-5-results-page-design.md)
+- Phase 6: [phase-6-responsive.md](/Users/gangjingu/project/Quit-codex/docs/plan/2026-04-13_frontend-renewal/phase-6-responsive.md)
+- Phase 7: [phase-7-accessibility.md](/Users/gangjingu/project/Quit-codex/docs/plan/2026-04-13_frontend-renewal/phase-7-accessibility.md)
+
 ---
 
 ## Phase 1: 랜딩 페이지 리디자인 ✅ 완료

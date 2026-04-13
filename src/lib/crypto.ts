@@ -1,13 +1,31 @@
 import crypto from 'crypto';
+import os from 'os';
 
 const ALGO = 'aes-256-gcm';
+let warnedAboutEncryptionKey = false;
 
 function getKey() {
   const source = process.env.ENCRYPTION_KEY;
   if (source && /^[a-f0-9]{64}$/i.test(source)) {
     return Buffer.from(source, 'hex');
   }
-  return crypto.createHash('sha256').update('quit-codex-local-dev-key').digest();
+
+  const fingerprint = [
+    process.cwd(),
+    os.hostname(),
+    os.userInfo().username,
+    process.env.VERCEL_URL,
+    process.env.HOSTNAME
+  ]
+    .filter(Boolean)
+    .join(':');
+
+  if (!warnedAboutEncryptionKey) {
+    warnedAboutEncryptionKey = true;
+    console.warn('ENCRYPTION_KEY is not configured. Falling back to a machine-local development key.');
+  }
+
+  return crypto.createHash('sha256').update(`quit-codex-encryption:${fingerprint}`).digest();
 }
 
 export function encryptPhone(phone: string) {

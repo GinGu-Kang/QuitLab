@@ -1,10 +1,12 @@
 import type { PersistedContact, PersistedResult } from '@/types';
+import { escapeHtml, escapeHtmlWithBreaks } from '@/lib/html';
 import { toAbsoluteUrl } from '@/lib/utils';
 
 export function createResultEmail(contact: Pick<PersistedContact, 'name' | 'unsubscribeToken'>, result: PersistedResult) {
   const topItems = result.top5Results.slice(0, 5);
   const top1 = topItems[0];
   const titleName = result.nickname || contact.name || '도전자';
+  const safeTitleName = escapeHtml(titleName);
   const resultUrl = toAbsoluteUrl(`/result/${result.sessionId}`);
   const unsubscribeUrl = toAbsoluteUrl(`/unsubscribe/${contact.unsubscribeToken}`);
 
@@ -13,8 +15,8 @@ export function createResultEmail(contact: Pick<PersistedContact, 'name' | 'unsu
       (entry, index) => `
         <tr>
           <td style="padding:10px 0;border-bottom:1px solid #e2e8f0;">
-            <strong>${index + 1}위. ${entry.item.name}</strong>
-            <div style="color:#64748b;font-size:13px;">${entry.item.category} · 적합도 ${Math.round(entry.finalScore)}점</div>
+            <strong>${index + 1}위. ${escapeHtml(entry.item.name)}</strong>
+            <div style="color:#64748b;font-size:13px;">${escapeHtml(entry.item.category)} · 적합도 ${Math.round(entry.finalScore)}점</div>
           </td>
         </tr>
       `
@@ -27,7 +29,7 @@ export function createResultEmail(contact: Pick<PersistedContact, 'name' | 'unsu
       <div style="font-family:Pretendard,'Apple SD Gothic Neo',sans-serif;max-width:680px;margin:0 auto;padding:32px;background:#f8fafc;color:#0f172a;">
         <div style="background:#0f172a;border-radius:24px;padding:32px;color:#f8fafc;">
           <p style="margin:0 0 12px;color:#14b8a6;font-weight:700;">퇴사하고 뭐하지?</p>
-          <h1 style="margin:0 0 16px;font-size:28px;line-height:1.3;">${titleName}님의 맞춤 창업 결과가 도착했어요.</h1>
+          <h1 style="margin:0 0 16px;font-size:28px;line-height:1.3;">${safeTitleName}님의 맞춤 창업 결과가 도착했어요.</h1>
           <p style="margin:0;color:#94a3b8;line-height:1.7;">129개 업종과 12개 역량, 현실 조건을 교차 분석한 결과입니다.</p>
         </div>
         <div style="background:#ffffff;border-radius:24px;padding:28px;margin-top:20px;">
@@ -38,10 +40,10 @@ export function createResultEmail(contact: Pick<PersistedContact, 'name' | 'unsu
           top1
             ? `
               <div style="background:#ffffff;border-radius:24px;padding:28px;margin-top:20px;">
-                <h2 style="margin:0 0 12px;font-size:20px;">1위 추천: ${top1.item.name}</h2>
-                <p style="margin:0 0 12px;color:#334155;line-height:1.7;">${top1.reason}</p>
-                <p style="margin:0 0 12px;color:#334155;line-height:1.7;">${top1.marketSummary}</p>
-                <p style="margin:0;color:#334155;line-height:1.7;">${top1.preparationGuide}</p>
+                <h2 style="margin:0 0 12px;font-size:20px;">1위 추천: ${escapeHtml(top1.item.name)}</h2>
+                <p style="margin:0 0 12px;color:#334155;line-height:1.7;">${escapeHtmlWithBreaks(top1.reason)}</p>
+                <p style="margin:0 0 12px;color:#334155;line-height:1.7;">${escapeHtmlWithBreaks(top1.marketSummary)}</p>
+                <p style="margin:0;color:#334155;line-height:1.7;">${escapeHtmlWithBreaks(top1.preparationGuide)}</p>
               </div>
             `
             : ''

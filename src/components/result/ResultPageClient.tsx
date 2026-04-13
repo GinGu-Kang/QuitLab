@@ -21,6 +21,7 @@ import { EmailCollector } from '@/components/result/EmailCollector';
 import { recordEvent } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
 import { SectionCard } from '@/components/ui/SectionCard';
+import { useDiagnoseStore } from '@/store/diagnose-store';
 import type { PersistedResult, ResultTabKey } from '@/types';
 
 const tabs: { key: ResultTabKey; label: string; color: string }[] = [
@@ -32,6 +33,7 @@ const tabs: { key: ResultTabKey; label: string; color: string }[] = [
 
 export function ResultPageClient({ result }: { result: PersistedResult }) {
   const [activeTab, setActiveTab] = useState<ResultTabKey>('match');
+  const resetDiagnose = useDiagnoseStore((state) => state.reset);
 
   useEffect(() => {
     void recordEvent('result_view', result.sessionId, {
@@ -98,7 +100,13 @@ export function ResultPageClient({ result }: { result: PersistedResult }) {
               추천은 적합도 기준입니다. 가이드를 함께 보면서 실제 투자·운영 난이도까지 같이 판단하세요.
             </p>
           </div>
-          <Button variant="ghost" onClick={() => window.location.assign('/diagnose/step-1')}>
+          <Button
+            variant="ghost"
+            onClick={() => {
+              resetDiagnose();
+              window.location.assign('/diagnose/step-1');
+            }}
+          >
             다시 진단하기
           </Button>
         </div>

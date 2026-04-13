@@ -167,10 +167,11 @@ function applyHardFilters(items: StartupItem[], input: DiagnoseInput) {
   return items
     .map((item) => {
       const warningTags: string[] = [];
-      const excluded = item.investmentMin > effectiveCapital;
+      const missingRequiredLicense = !hasRequiredLicense(item, input.hardFilter.license);
+      const excluded = item.investmentMin > effectiveCapital || missingRequiredLicense;
       let penalty = 0;
 
-      if (!hasRequiredLicense(item, input.hardFilter.license)) {
+      if (missingRequiredLicense) {
         warningTags.push(`자격증 필요: ${item.requiredLicense}`);
       }
 
@@ -180,7 +181,7 @@ function applyHardFilters(items: StartupItem[], input: DiagnoseInput) {
         warningTags.push('선택 지역과 상권 적합도 재확인 필요');
       }
 
-      if (input.hardFilter.timing === 'now' && (item.entryBarrier >= 4 || !hasRequiredLicense(item, input.hardFilter.license))) {
+      if (input.hardFilter.timing === 'now' && (item.entryBarrier >= 4 || missingRequiredLicense)) {
         penalty += 10;
         warningTags.push('즉시 퇴사 기준으로는 준비기간이 긴 업종');
       }

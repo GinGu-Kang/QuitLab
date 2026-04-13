@@ -7,5 +7,6 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
   if (!result) {
     return NextResponse.json({ error: 'Result not found' }, { status: 404 });
   }
-  return NextResponse.json(result);
+  const { ipHash: _, userAgent: __, ...safeResult } = result;
+  return NextResponse.json(safeResult);
 }

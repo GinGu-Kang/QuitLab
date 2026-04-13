@@ -15,8 +15,8 @@ export function BinaryChoice({
           type="button"
           onClick={option.onClick}
           className={cn(
-            'flex min-h-40 cursor-pointer flex-col justify-between rounded-[18px] border border-quiz-border bg-quiz-card p-5 text-left',
-            'hover:-translate-y-1 hover:border-quiz-purple hover:bg-quiz-hover'
+            'flex min-h-40 cursor-pointer flex-col justify-between rounded-md border border-quiz-border bg-quiz-card p-5 text-left',
+            'hover:-translate-y-1 hover:border-quiz-teal hover:bg-quiz-hover'
           )}
         >
           <span className="text-2xl">{option.icon}</span>

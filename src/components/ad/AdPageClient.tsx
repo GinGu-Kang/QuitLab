@@ -35,10 +35,10 @@ export function AdPageClient({ sid }: { sid?: string }) {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-[520px] flex-col items-center justify-center px-4">
-      <div className="w-full rounded-[22px] border border-quiz-border bg-quiz-card p-6 text-center">
+      <div className="w-full rounded-lg border border-quiz-border bg-quiz-card p-6 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-quiz-text-dim">Advertisement</p>
-        <div className="mt-5 rounded-[20px] bg-quiz-bg/70 p-6">
-          <div className="h-[180px] rounded-[18px] bg-quiz-bg/80 p-4">
+        <div className="mt-5 rounded-lg bg-quiz-bg/70 p-6">
+          <div className="h-[180px] rounded-md bg-quiz-bg/80 p-4">
             <AdBanner compact />
           </div>
         </div>

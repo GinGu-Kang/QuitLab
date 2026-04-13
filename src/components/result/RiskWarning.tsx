@@ -4,7 +4,7 @@ export function RiskWarning({ results }: { results: MatchResult[] }) {
   return (
     <div className="space-y-3">
       {results.map((result) => (
-        <div key={result.item.id} className="rounded-[18px] border border-quiz-border bg-quiz-card p-5">
+        <div key={result.item.id} className="rounded-md border border-quiz-border bg-quiz-card p-5">
           <div className="flex items-start justify-between gap-3">
             <div>
               <h3 className="text-lg font-bold">{result.item.name}</h3>
@@ -14,11 +14,11 @@ export function RiskWarning({ results }: { results: MatchResult[] }) {
           </div>
 
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            <div className="rounded-[14px] bg-quiz-bg/70 p-4">
+            <div className="rounded-sm bg-quiz-bg/70 p-4">
               <p className="text-xs text-quiz-text-dim">폐업률 (3년)</p>
               <p className="mt-1 text-sm font-semibold text-red-300">{result.item.closureRate}</p>
             </div>
-            <div className="rounded-[14px] bg-quiz-bg/70 p-4">
+            <div className="rounded-sm bg-quiz-bg/70 p-4">
               <p className="text-xs text-quiz-text-dim">계절성</p>
               <p className="mt-1 text-sm font-semibold text-quiz-text-secondary">{result.item.seasonality}</p>
             </div>

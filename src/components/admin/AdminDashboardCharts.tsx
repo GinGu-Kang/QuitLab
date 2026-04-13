@@ -14,28 +14,29 @@ import {
   YAxis
 } from 'recharts';
 
+import { CHART_COLORS } from '@/lib/chart-colors';
 import type { AdminStats } from '@/types';
 
 export function AdminDashboardCharts({ stats }: { stats: AdminStats }) {
   return (
     <div className="space-y-5">
       <div className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-[20px] border border-quiz-border bg-quiz-card p-5">
+        <div className="rounded-lg border border-quiz-border bg-quiz-card p-5">
           <p className="text-sm text-quiz-text-secondary">전체 참여자</p>
           <h2 className="mt-3 text-4xl font-black">{stats.totalParticipants}</h2>
         </div>
-        <div className="rounded-[20px] border border-quiz-border bg-quiz-card p-5">
+        <div className="rounded-lg border border-quiz-border bg-quiz-card p-5">
           <p className="text-sm text-quiz-text-secondary">이메일 수집률</p>
           <h2 className="mt-3 text-4xl font-black">{stats.emailCollectionRate}%</h2>
         </div>
-        <div className="rounded-[20px] border border-quiz-border bg-quiz-card p-5">
+        <div className="rounded-lg border border-quiz-border bg-quiz-card p-5">
           <p className="text-sm text-quiz-text-secondary">기록된 퍼널 이벤트</p>
           <h2 className="mt-3 text-4xl font-black">{stats.funnel.reduce((sum, item) => sum + item.count, 0)}</h2>
         </div>
       </div>
 
       <div className="grid gap-5 xl:grid-cols-2">
-        <div className="rounded-[20px] border border-quiz-border bg-quiz-card p-5">
+        <div className="rounded-lg border border-quiz-border bg-quiz-card p-5">
           <h3 className="text-lg font-bold">일별 참여 추이</h3>
           <div className="mt-4 h-[280px]">
             <ResponsiveContainer width="100%" height="100%">
@@ -50,7 +51,7 @@ export function AdminDashboardCharts({ stats }: { stats: AdminStats }) {
           </div>
         </div>
 
-        <div className="rounded-[20px] border border-quiz-border bg-quiz-card p-5">
+        <div className="rounded-lg border border-quiz-border bg-quiz-card p-5">
           <h3 className="text-lg font-bold">인기 추천 업종 TOP 10</h3>
           <div className="mt-4 h-[280px]">
             <ResponsiveContainer width="100%" height="100%">
@@ -66,13 +67,13 @@ export function AdminDashboardCharts({ stats }: { stats: AdminStats }) {
         </div>
       </div>
 
-      <div className="rounded-[20px] border border-quiz-border bg-quiz-card p-5">
+      <div className="rounded-lg border border-quiz-border bg-quiz-card p-5">
         <h3 className="text-lg font-bold">전환 퍼널</h3>
         <div className="mt-4 h-[320px]">
           <ResponsiveContainer width="100%" height="100%">
             <FunnelChart>
               <Tooltip />
-              <Funnel dataKey="count" data={stats.funnel} isAnimationActive fill="#8B5CF6" />
+              <Funnel dataKey="count" data={stats.funnel} isAnimationActive fill={CHART_COLORS.primary} />
             </FunnelChart>
           </ResponsiveContainer>
         </div>

@@ -48,7 +48,7 @@ export default function Step1Page() {
   }
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-[520px] flex-col justify-center px-4 py-8">
+    <main id="main-content" className="animate-fade-up mx-auto flex min-h-screen max-w-[520px] flex-col justify-center px-4 py-8">
       <ProgressBar total={hardFilters.length} current={hardFilterIndex} gradientClassName="bg-step-1-gradient" />
       <QuestionCard
         stepLabel={`STEP 1 / 3 · 현실 조건 (${hardFilterIndex + 1}/${hardFilters.length})`}

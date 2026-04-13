@@ -1,11 +1,12 @@
+import { CHART_COLORS } from '@/lib/chart-colors';
 import type { MatchResult } from '@/types';
 
 const segments = [
-  { key: 'competencyFit', label: '역량 50%', color: '#14B8A6' },
-  { key: 'personalityFit', label: '성향 30%', color: '#F59E0B' },
-  { key: 'careerSynergy', label: '경력 10%', color: '#8B5CF6' },
-  { key: 'marketAttractiveness', label: '시장 10%', color: '#EC4899' }
-] as const;
+  { key: 'competencyFit', label: '역량 50%', color: CHART_COLORS.primary },
+  { key: 'personalityFit', label: '성향 30%', color: CHART_COLORS.secondary },
+  { key: 'careerSynergy', label: '경력 10%', color: CHART_COLORS.tertiary },
+  { key: 'marketAttractiveness', label: '시장 10%', color: CHART_COLORS.quaternary }
+];
 
 export function ScoreBreakdown({ results }: { results: MatchResult[] }) {
   return (
@@ -20,7 +21,7 @@ export function ScoreBreakdown({ results }: { results: MatchResult[] }) {
         const total = weights.reduce((sum, value) => sum + value, 0);
 
         return (
-          <div key={result.item.id} className="rounded-[18px] border border-quiz-border bg-quiz-card p-5">
+          <div key={result.item.id} className="rounded-md border border-quiz-border bg-quiz-card p-5">
             <div className="mb-3 flex items-center justify-between">
               <h3 className="text-lg font-bold">{result.item.name}</h3>
               <span className="text-sm font-semibold text-quiz-teal-light">{Math.round(result.finalScore)}점</span>

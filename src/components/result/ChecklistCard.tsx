@@ -11,7 +11,7 @@ const checklist = [
 
 export function ChecklistCard() {
   return (
-    <div className="rounded-[18px] border border-quiz-border bg-quiz-card p-5">
+    <div className="rounded-md border border-quiz-border bg-quiz-card p-5">
       <h3 className="text-lg font-bold">✅ 창업 전 필수 체크리스트</h3>
       <div className="mt-4 space-y-2 text-sm leading-7 text-quiz-text-secondary">
         {checklist.map((item) => (

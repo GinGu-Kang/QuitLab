@@ -110,6 +110,13 @@ Codex, Claude Code, Cursor Agent 같은 도구가 이 프로젝트를 빠르게 
 - `CLAUDE.md`
 - `알고리즘/리서치.md`
 
+문서 호환 경로:
+
+- `plans/`는 외부 링크와 GitHub 북마크가 걸려 있는 공개 호환 경로다.
+- `docs/plan/PHASE-*.md`를 수정하더라도 `plans/PHASE-*.md`는 삭제하거나 이동하면 안 된다.
+- `plans/README.md`도 유지해야 한다.
+- `npm run verify:repo`는 이 경로가 살아 있고 `docs/plan`과 동기화되어 있는지 검사한다.
+
 ## 5. 실행 명령어
 
 기본:

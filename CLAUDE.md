@@ -66,6 +66,8 @@ Landing → Step 1 (Hard Filters) → Step 2 (24 competency questions) → Step 
 - `IMPLEMENTATION_PLAN.md` — Master implementation plan with all 10 steps, schema definitions, and verification checklists
 - `startup_quiz_v4.jsx` — Legacy React component (UI reference only; dummy data must be replaced)
 - `startup_guide_v2.xlsx` — Source of truth for all business data and questions
+- `plans/` — Legacy public documentation path that must remain available for existing GitHub links
+- `docs/plan/` — Working copy of the phase plan docs; phase files here must stay mirrored to `plans/`
 
 ## Important Conventions
 
@@ -73,6 +75,8 @@ Landing → Step 1 (Hard Filters) → Step 2 (24 competency questions) → Step 
 - Phone numbers must be AES-256-GCM encrypted before storage; IPs must be SHA-256 hashed
 - Privacy consent and marketing consent are recorded separately with timestamps (legal requirement)
 - Competency scores: each competency has 2 questions, averaged to get final 1–5 score per competency
+- `plans/` paths are externally referenced; do not remove, rename, or relocate them
+- Run `npm run verify:repo` after doc moves/renames; `build` and `test` now enforce this automatically
 
 
 

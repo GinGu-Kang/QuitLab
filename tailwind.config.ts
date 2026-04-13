@@ -27,6 +27,11 @@ const config: Config = {
         gold: '0 0 20px rgba(245, 158, 11, 0.25)',
         focus: '0 0 0 2px rgba(20, 184, 166, 0.35)'
       },
+      borderRadius: {
+        sm: '8px',
+        md: '12px',
+        lg: '16px',
+      },
       backgroundImage: {
         'hero-gradient': 'linear-gradient(135deg, #14B8A6, #FCD34D)',
         'step-1-gradient': 'linear-gradient(90deg, #F59E0B, #EC4899)',

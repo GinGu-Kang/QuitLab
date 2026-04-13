@@ -46,7 +46,7 @@ export function EmailCollector({ sessionId }: { sessionId: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-[18px] border border-quiz-border bg-quiz-card p-5">
+    <form onSubmit={handleSubmit} className="rounded-md border border-quiz-border bg-quiz-card p-5">
       <h3 className="text-lg font-bold">📧 분석 결과 저장하기</h3>
       <p className="mt-2 text-sm leading-7 text-quiz-text-secondary">
         이 페이지를 닫으면 다시 보기 어려워요. 나중에 천천히 다시 보고 싶다면 이메일로 받아두세요.

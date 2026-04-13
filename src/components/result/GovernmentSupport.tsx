@@ -7,7 +7,7 @@ const supports = [
 
 export function GovernmentSupport() {
   return (
-    <div className="rounded-[18px] border border-quiz-border bg-quiz-card p-5">
+    <div className="rounded-md border border-quiz-border bg-quiz-card p-5">
       <h3 className="text-lg font-bold">🏛️ 정부지원</h3>
       <ul className="mt-4 space-y-2 text-sm leading-7 text-quiz-text-secondary">
         {supports.map((support) => (

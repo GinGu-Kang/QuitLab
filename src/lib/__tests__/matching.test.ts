@@ -38,6 +38,23 @@ describe('matchStartups', () => {
     expect(results.every((entry) => entry.item.investmentMin <= 1000)).toBe(true);
   });
 
+  it('excludes items that require an unavailable license', () => {
+    const results = matchStartups({
+      ...baseInput,
+      hardFilter: {
+        ...baseInput.hardFilter,
+        capital: 30000,
+        career: 'food',
+        license: 'none'
+      },
+      competencyScores: Array(12).fill(3),
+      personalityAnswers: Array(10).fill('a') as DiagnoseInput['personalityAnswers']
+    });
+
+    expect(results.every((entry) => entry.warningTags.every((tag) => !tag.startsWith('자격증 필요:')))).toBe(true);
+    expect(results.every((entry) => entry.item.requiredLicense === '없음' || entry.item.requiredLicense === '-' || entry.item.requiredLicense === '업종별 상이')).toBe(true);
+  });
+
   it('is deterministic for the same answers', () => {
     const first = matchStartups(baseInput);
     const second = matchStartups(baseInput);

@@ -9,6 +9,7 @@ import {
   ResponsiveContainer
 } from 'recharts';
 
+import { CHART_COLORS } from '@/lib/chart-colors';
 import { COMPETENCY_ICONS, COMPETENCY_LABELS, type StartupItem } from '@/types';
 
 export function RadarChart({ userScores, topItem }: { userScores: number[]; topItem: StartupItem }) {
@@ -21,15 +22,15 @@ export function RadarChart({ userScores, topItem }: { userScores: number[]; topI
   }));
 
   return (
-    <div className="space-y-4 rounded-[22px] border border-quiz-border bg-quiz-card p-4">
-      <div className="h-[280px] w-full">
+    <div className="space-y-4 rounded-lg border border-quiz-border bg-quiz-card p-4">
+      <div className="h-[220px] w-full sm:h-[280px]">
         <ResponsiveContainer width="100%" height="100%">
           <BaseRadarChart data={data}>
-            <PolarGrid stroke="#1E293B" />
-            <PolarAngleAxis dataKey="label" tick={{ fill: '#94A3B8', fontSize: 10 }} />
-            <PolarRadiusAxis angle={30} domain={[0, 5]} tick={{ fill: '#64748B', fontSize: 9 }} />
-            <Radar dataKey="user" stroke="#14B8A6" fill="rgba(20, 184, 166, 0.22)" />
-            <Radar dataKey="required" stroke="#F59E0B" fill="rgba(245, 158, 11, 0.12)" />
+            <PolarGrid stroke={CHART_COLORS.grid} />
+            <PolarAngleAxis dataKey="label" tick={{ fill: CHART_COLORS.tickText, fontSize: 10 }} />
+            <PolarRadiusAxis angle={30} domain={[0, 5]} tick={{ fill: CHART_COLORS.tickDim, fontSize: 9 }} />
+            <Radar dataKey="user" stroke={CHART_COLORS.primary} fill="rgba(20, 184, 166, 0.22)" />
+            <Radar dataKey="required" stroke={CHART_COLORS.secondary} fill="rgba(245, 158, 11, 0.12)" />
           </BaseRadarChart>
         </ResponsiveContainer>
       </div>
@@ -43,12 +44,12 @@ export function RadarChart({ userScores, topItem }: { userScores: number[]; topI
               {Array.from({ length: 5 }, (_, step) => {
                 const score = step + 1;
                 const filled = score <= entry.user;
-                const color = entry.user >= 4 ? '#14B8A6' : entry.user >= 3 ? '#F59E0B' : '#EF4444';
+                const color = entry.user >= 4 ? CHART_COLORS.primary : entry.user >= 3 ? CHART_COLORS.secondary : CHART_COLORS.danger;
                 return (
                   <span
                     key={`${entry.label}_${score}`}
                     className="h-[5px] w-[11px] rounded-sm"
-                    style={{ background: filled ? color : '#1E293B' }}
+                    style={{ background: filled ? color : CHART_COLORS.muted }}
                   />
                 );
               })}

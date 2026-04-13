@@ -21,17 +21,19 @@ import { EmailCollector } from '@/components/result/EmailCollector';
 import { recordEvent } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
 import { SectionCard } from '@/components/ui/SectionCard';
+import { useDiagnoseStore } from '@/store/diagnose-store';
 import type { PersistedResult, ResultTabKey } from '@/types';
 
 const tabs: { key: ResultTabKey; label: string; color: string }[] = [
   { key: 'match', label: '🏆 추천', color: '#0D9488' },
   { key: 'why', label: '💡 분석근거', color: '#F59E0B' },
   { key: 'guide', label: '📋 가이드', color: '#10B981' },
-  { key: 'future', label: '✨ 미래상상', color: '#8B5CF6' }
+  { key: 'future', label: '✨ 미래상상', color: '#14B8A6' }
 ];
 
 export function ResultPageClient({ result }: { result: PersistedResult }) {
   const [activeTab, setActiveTab] = useState<ResultTabKey>('match');
+  const resetDiagnose = useDiagnoseStore((state) => state.reset);
 
   useEffect(() => {
     void recordEvent('result_view', result.sessionId, {
@@ -93,12 +95,18 @@ export function ResultPageClient({ result }: { result: PersistedResult }) {
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs font-semibold text-quiz-teal-light">{nickname}님, 데이터 분석이 끝났어요</p>
-            <h1 className="mt-2 text-[30px] font-extrabold leading-tight sm:text-[38px]">129개 업종 × 12개 역량 × 현실 조건 교차 분석 결과</h1>
+            <h1 className="mt-2 text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[38px]">129개 업종 × 12개 역량 × 현실 조건 교차 분석 결과</h1>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-quiz-text-secondary">
               추천은 적합도 기준입니다. 가이드를 함께 보면서 실제 투자·운영 난이도까지 같이 판단하세요.
             </p>
           </div>
-          <Button variant="ghost" onClick={() => window.location.assign('/diagnose/step-1')}>
+          <Button
+            variant="ghost"
+            onClick={() => {
+              resetDiagnose();
+              window.location.assign('/diagnose/step-1');
+            }}
+          >
             다시 진단하기
           </Button>
         </div>
@@ -106,13 +114,15 @@ export function ResultPageClient({ result }: { result: PersistedResult }) {
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_300px]">
         <div className="space-y-6">
-          <div className="grid gap-2 rounded-[20px] border border-quiz-border bg-quiz-card p-2 sm:grid-cols-4">
+          <div role="tablist" className="grid grid-cols-2 gap-2 rounded-lg border border-quiz-border bg-quiz-card p-2 sm:grid-cols-4">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 type="button"
+                role="tab"
+                aria-selected={activeTab === tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className="flex-1 rounded-[12px] border px-3 py-2 text-[12px] font-semibold"
+                className="flex-1 rounded-sm border px-3 py-2 text-[12px] font-semibold"
                 style={{
                   borderColor: activeTab === tab.key ? tab.color : '#1E293B',
                   background: activeTab === tab.key ? `${tab.color}22` : '#111827',
@@ -132,15 +142,15 @@ export function ResultPageClient({ result }: { result: PersistedResult }) {
             <div className="mt-4 space-y-3 text-sm text-quiz-text-secondary">
               {topResult ? (
                 <>
-                  <div className="rounded-[16px] bg-quiz-bg/70 p-4">
+                  <div className="rounded-md bg-quiz-bg/70 p-4">
                     <p className="text-xs text-quiz-text-dim">1위 추천</p>
                     <p className="mt-1 font-semibold text-quiz-text">{topResult.item.name}</p>
                   </div>
-                  <div className="rounded-[16px] bg-quiz-bg/70 p-4">
+                  <div className="rounded-md bg-quiz-bg/70 p-4">
                     <p className="text-xs text-quiz-text-dim">현실 투자비</p>
                     <p className="mt-1 font-semibold text-quiz-text">{topResult.item.investmentRange}</p>
                   </div>
-                  <div className="rounded-[16px] bg-quiz-bg/70 p-4">
+                  <div className="rounded-md bg-quiz-bg/70 p-4">
                     <p className="text-xs text-quiz-text-dim">대표 리스크</p>
                     <p className="mt-1 font-semibold text-quiz-text">{topResult.riskWarnings[0] || '핵심 리스크 낮음'}</p>
                   </div>

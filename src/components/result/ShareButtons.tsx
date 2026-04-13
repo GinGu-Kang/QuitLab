@@ -19,7 +19,7 @@ export function ShareButtons({ sessionId, topItem }: { sessionId: string; topIte
   };
 
   return (
-    <div className="rounded-[18px] border border-quiz-border bg-quiz-card p-5">
+    <div className="rounded-md border border-quiz-border bg-quiz-card p-5">
       <p className="text-xs text-quiz-text-dim">이 결과, 친구 의견도 들어볼까요?</p>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <Button variant="gold" full onClick={handleCopy}>

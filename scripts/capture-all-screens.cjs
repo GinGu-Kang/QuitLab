@@ -23,6 +23,12 @@ async function clickButtonByText(page, texts) {
   throw new Error(`Unable to find button with texts: ${texts.join(', ')}`);
 }
 
+async function clickTabByText(page, text) {
+  const locator = page.getByRole('tab', { name: new RegExp(text) }).first();
+  await locator.waitFor({ state: 'visible', timeout: 30000 });
+  await locator.click();
+}
+
 async function waitForUrlContains(page, part) {
   await page.waitForURL((url) => url.toString().includes(part), { timeout: 120000 });
 }
@@ -153,15 +159,15 @@ async function main() {
   const sessionId = resultUrl.split('/result/')[1];
   await save(page, '08-result-match');
 
-  await page.getByRole('button', { name: /분석근거/ }).click();
+  await clickTabByText(page, '분석근거');
   await page.waitForSelector('text=왜 이 자영업이 추천되었을까?');
   await save(page, '09-result-why');
 
-  await page.getByRole('button', { name: /가이드/ }).click();
+  await clickTabByText(page, '가이드');
   await page.waitForSelector('text=실행 로드맵');
   await save(page, '10-result-guide');
 
-  await page.getByRole('button', { name: /미래상상/ }).click();
+  await clickTabByText(page, '미래상상');
   await page.waitForSelector('text=분석 결과 저장하기');
   await save(page, '11-result-future');
 
@@ -194,8 +200,10 @@ async function main() {
   await page.locator('input[type="email"]').fill('admin@local.dev');
   await page.locator('input[type="password"]').fill('admin1234!');
   await clickButtonByText(page, ['로그인']);
-  await page.waitForURL((url) => url.toString().includes('/admin'), { timeout: 120000 });
-  await page.waitForSelector('text=전체 참여자');
+  await page.waitForTimeout(1000);
+  await page.goto(`${baseUrl}/admin`, { waitUntil: 'networkidle' });
+  await page.waitForSelector('text=관리자 모드', { timeout: 120000 });
+  await page.waitForSelector('text=전체 참여자', { timeout: 120000 });
   await save(page, '17-admin-dashboard');
 
   await page.goto(`${baseUrl}/admin/customers`, { waitUntil: 'networkidle' });

@@ -10,7 +10,7 @@ export const Input = React.forwardRef<HTMLInputElement, React.InputHTMLAttribute
     <input
       ref={ref}
       className={cn(
-        'min-h-11 w-full rounded-[14px] border border-quiz-border bg-quiz-card px-4 py-3 text-[15px] text-quiz-text',
+        'min-h-11 w-full rounded-sm border border-quiz-border bg-quiz-card px-4 py-3 text-[15px] text-quiz-text',
         'placeholder:text-quiz-text-dim focus:border-quiz-teal',
         className
       )}

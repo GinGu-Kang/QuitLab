@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 
+import { CHART_COLORS } from '@/lib/chart-colors';
 import type { MatchResult } from '@/types';
 
 const costStructure = [
-  { label: '임대/시설', width: '42%', color: '#14B8A6' },
-  { label: '인테리어/장비', width: '30%', color: '#8B5CF6' },
-  { label: '운영자금', width: '18%', color: '#F59E0B' },
-  { label: '마케팅/인허가', width: '10%', color: '#EC4899' }
+  { label: '임대/시설', width: '42%', color: CHART_COLORS.primary },
+  { label: '인테리어/장비', width: '30%', color: CHART_COLORS.tertiary },
+  { label: '운영자금', width: '18%', color: CHART_COLORS.secondary },
+  { label: '마케팅/인허가', width: '10%', color: CHART_COLORS.quaternary }
 ];
 
 export function StartupGuide({ results }: { results: MatchResult[] }) {
@@ -21,7 +22,7 @@ export function StartupGuide({ results }: { results: MatchResult[] }) {
         return (
           <div
             key={result.item.id}
-            className={`rounded-[18px] border bg-quiz-card ${open ? 'border-quiz-green' : 'border-quiz-border'}`}
+            className={`rounded-md border bg-quiz-card ${open ? 'border-quiz-green' : 'border-quiz-border'}`}
           >
             <button
               type="button"
@@ -40,18 +41,18 @@ export function StartupGuide({ results }: { results: MatchResult[] }) {
 
             {open ? (
               <div className="space-y-4 border-t border-quiz-border px-5 py-5">
-                <div className="rounded-[14px] bg-quiz-bg/70 p-4">
+                <div className="rounded-sm bg-quiz-bg/70 p-4">
                   <p className="text-xs font-semibold text-quiz-green">📊 현실 수익</p>
                   <p className="mt-2 text-sm leading-7 text-quiz-text-secondary">{result.marketSummary}</p>
                 </div>
 
-                <div className="rounded-[14px] bg-quiz-bg/70 p-4">
+                <div className="rounded-sm bg-quiz-bg/70 p-4">
                   <p className="text-xs font-semibold text-quiz-gold-light">🎯 창업 가이드</p>
                   <p className="mt-2 text-sm leading-7 text-quiz-text-secondary">{result.preparationGuide}</p>
                 </div>
 
-                <div className="rounded-[14px] bg-quiz-bg/70 p-4">
-                  <p className="text-xs font-semibold text-quiz-pink">💰 비용 구조</p>
+                <div className="rounded-sm bg-quiz-bg/70 p-4">
+                  <p className="text-xs font-semibold text-quiz-gold-light">💰 비용 구조</p>
                   <div className="mt-3 space-y-3">
                     {costStructure.map((item) => (
                       <div key={item.label}>

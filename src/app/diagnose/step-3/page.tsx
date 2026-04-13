@@ -51,7 +51,7 @@ export default function Step3Page() {
   const finished = personalityIndex >= questions.length;
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-[520px] flex-col justify-center px-4 py-8">
+    <main id="main-content" className="animate-fade-up mx-auto flex min-h-screen max-w-[520px] flex-col justify-center px-4 py-8">
       {!finished && (
         <>
           <ProgressBar total={questions.length} current={personalityIndex} gradientClassName="bg-step-3-gradient" />
@@ -85,8 +85,8 @@ export default function Step3Page() {
       )}
 
       {finished && (
-        <div className="rounded-[22px] border border-quiz-border bg-quiz-card p-6 text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[rgba(139,92,246,0.14)] text-3xl">✨</div>
+        <div className="rounded-lg border border-quiz-border bg-quiz-card p-6 text-center">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[rgba(20,184,166,0.14)] text-3xl">✨</div>
           <h2 className="mt-4 text-2xl font-bold">모든 진단 완료!</h2>
           <p className="mt-2 text-sm leading-7 text-quiz-text-secondary">결과 페이지에 표시할 닉네임을 정해 주세요. 비워두면 기본값 &quot;도전자&quot;를 사용합니다.</p>
           <Input

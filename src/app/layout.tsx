@@ -36,6 +36,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko">
       <body className="min-h-screen bg-quiz-bg text-quiz-text antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-quiz-teal focus:px-4 focus:py-2 focus:text-white"
+        >
+          본문으로 건너뛰기
+        </a>
         {process.env.NEXT_PUBLIC_GA_ID ? (
           <>
             <Script

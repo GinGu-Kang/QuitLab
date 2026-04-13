@@ -50,7 +50,7 @@ export default function Step2Page() {
   }
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-[520px] flex-col justify-center px-4 py-8">
+    <main id="main-content" className="animate-fade-up mx-auto flex min-h-screen max-w-[520px] flex-col justify-center px-4 py-8">
       <ProgressBar total={questions.length} current={competencyIndex} gradientClassName="bg-step-2-gradient" />
       <QuestionCard stepLabel={`STEP 2 / 3 · 역량 진단 (${competencyIndex + 1}/${questions.length})`} question={current.scenario}>
         {current.options.map((option) => (

@@ -40,12 +40,16 @@ export async function POST(req: NextRequest) {
 
     if (contact && resend) {
       const email = createResultEmail(contact, result);
-      await resend.emails.send({
-        from: 'Quit Codex <onboarding@resend.dev>',
-        to: parsed.email,
-        subject: email.subject,
-        html: email.html
-      });
+      try {
+        await resend.emails.send({
+          from: 'Quit Codex <onboarding@resend.dev>',
+          to: parsed.email,
+          subject: email.subject,
+          html: email.html
+        });
+      } catch (emailError) {
+        console.error('Failed to send result email:', emailError);
+      }
     }
 
     return NextResponse.json({ success: true });

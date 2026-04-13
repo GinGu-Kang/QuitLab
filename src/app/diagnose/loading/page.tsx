@@ -73,12 +73,12 @@ export default function LoadingPage() {
   }, [requestDone, resolvedSessionId]);
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-[520px] flex-col items-center justify-center px-4 text-center">
+    <main id="main-content" className="animate-fade-up mx-auto flex min-h-screen max-w-[520px] flex-col items-center justify-center px-4 text-center">
       <div className="rounded-full border border-quiz-border bg-quiz-card p-5">
         <Loader2 className="h-10 w-10 animate-spin text-quiz-teal-light" />
       </div>
       <h1 className="mt-6 text-3xl font-bold">분석 중입니다</h1>
-      <p className="mt-3 max-w-md text-sm leading-7 text-quiz-text-secondary">{steps[stepIndex]}</p>
+      <p aria-live="polite" className="mt-3 max-w-md text-sm leading-7 text-quiz-text-secondary">{steps[stepIndex]}</p>
       <div className="mt-8 w-full max-w-sm space-y-2">
         {steps.map((text, index) => (
           <div

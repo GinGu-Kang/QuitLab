@@ -18,8 +18,8 @@ export function OptionButton({
       type="button"
       onClick={onClick}
       className={cn(
-        'flex min-h-11 w-full cursor-pointer items-center gap-3 rounded-[14px] border bg-quiz-card px-4 py-3.5 text-left',
-        'hover:translate-x-1 hover:border-quiz-teal hover:bg-quiz-hover',
+        'flex min-h-11 w-full cursor-pointer items-center gap-3 rounded-sm border bg-quiz-card px-4 py-3.5 text-left',
+        'hover:-translate-y-0.5 hover:border-quiz-teal hover:bg-quiz-hover',
         selected ? 'border-quiz-teal bg-quiz-hover text-quiz-text' : 'border-quiz-border text-quiz-text'
       )}
     >

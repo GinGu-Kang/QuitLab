@@ -73,3 +73,26 @@ Landing → Step 1 (Hard Filters) → Step 2 (24 competency questions) → Step 
 - Phone numbers must be AES-256-GCM encrypted before storage; IPs must be SHA-256 hashed
 - Privacy consent and marketing consent are recorded separately with timestamps (legal requirement)
 - Competency scores: each competency has 2 questions, averaged to get final 1–5 score per competency
+
+
+
+코드를 작성하기 전에 반드시 계획을 수립하고 승인을 받아라.
+
+예외: 사용자가 요청에 바로시작이라고 명시하면 research/plan/사전 승인 단계를 생략하고 즉시 실행한다. 이 예외는 해당 문구가 포함된 요청에만 적용한다.
+
+전체 규칙: .agent/rules/development-workflow.md
+
+작업 5단계 (반드시 순서 준수)
+Phase	내용	산출물 (파일명 규칙)
+1. 리서치	관련 코드 깊이 분석	docs/research/YYYY-MM-DD_작업명.md
+2. 계획	구현 계획 상세 작성	docs/plan/YYYY-MM-DD_작업명.md
+3. 승인	사용자 검토 및 승인 대기	승인 전 코드 작성 절대 금지
+4. 구현	승인된 plan 기계적 이행	기능 단위 커밋 + docs/changelog.md 항목 추가
+5. 조정	방향 이탈 시 즉시 중단·보고	필요 시 Phase 2부터 재시작
+
+research/plan은 작업마다 날짜+작업명으로 새 파일 생성. 덮어쓰기 금지.
+
+복잡도 기준
+- 소규모 (파일 1-2개): Phase 2 간소화 가능
+- 중규모 (파일 3-5개): 전체 워크플로우 필수
+- 대규모 (파일 5개+): 하위 작업 분할, 각각 별도 plan + 커밋

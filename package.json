@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run seed && next build",
+    "build": "npm run seed && npm run verify:repo && next build",
     "start": "next start",
     "lint": "next lint",
     "seed": "tsx scripts/seed-from-excel.ts",
-    "test": "vitest run",
-    "test:watch": "vitest"
+    "test": "npm run verify:repo && vitest run",
+    "test:watch": "vitest",
+    "verify:repo": "node scripts/verify-required-paths.cjs"
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",

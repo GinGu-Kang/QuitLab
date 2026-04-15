@@ -9,18 +9,21 @@ datasource db {
 }
 
 model UserResult {
-  id                 String      @id @default(cuid())
-  sessionId          String      @unique
-  nickname           String?
-  createdAt          DateTime    @default(now())
-  hardFilterInputs   Json
-  competencyScores   Json
-  personalityAnswers Json
-  top5Results        Json
-  comicImageUrl      String?
-  userAgent          String?
-  ipHash             String?
-  userContact        UserContact?
+  id                    String      @id @default(cuid())
+  sessionId             String      @unique
+  nickname              String?
+  createdAt             DateTime    @default(now())
+  hardFilterInputs      Json
+  competencyScores      Json
+  personalityAnswers    Json
+  top5Results           Json
+  comicImageUrl         String?
+  userAgent             String?
+  ipHash                String?
+  masterDataReleaseId   String?
+  masterDataVersion     String?
+  matchingEngineVersion String?
+  userContact           UserContact?
 }
 
 model UserContact {
@@ -63,4 +66,109 @@ model AdminUser {
   email        String   @unique
   passwordHash String
   createdAt    DateTime @default(now())
+}
+
+model MasterDataRelease {
+  id            String   @id @default(cuid())
+  version       String   @unique
+  status        String
+  snapshotJson  Json?
+  baseReleaseId String?
+  notes         String?
+  createdById   String?
+  createdAt     DateTime @default(now())
+  publishedAt   DateTime?
+
+  @@index([status, publishedAt])
+}
+
+model StartupItemDraft {
+  id                  String   @id @default(cuid())
+  releaseId           String
+  sourceItemId        Int?
+  rowStatus           String
+  category            String
+  name                String
+  coreSkills          String
+  investmentRange     String
+  investmentMin       Int
+  investmentMax       Int?
+  competencyScores    Json
+  operationType       String
+  requiredStaff       String
+  weekendWork         String
+  workLifeBalance     Int
+  seasonality         String
+  requiredLicense     String
+  avgMonthlyRevenue   String
+  operatingMargin     String
+  breakeven           String
+  competitionLevel    Int
+  differentiationRoom Int
+  closureRate         String
+  growthPotential     Int
+  entryBarrier        Int
+
+  @@index([releaseId, rowStatus])
+  @@index([releaseId, category])
+}
+
+model CompetencyQuestionDraft {
+  id               String   @id @default(cuid())
+  releaseId        String
+  sourceQuestionId Int?
+  payload          Json
+
+  @@index([releaseId])
+}
+
+model HardFilterDraft {
+  id             String   @id @default(cuid())
+  releaseId      String
+  sourceFilterId String?
+  payload        Json
+
+  @@index([releaseId])
+}
+
+model PersonalityQuestionDraft {
+  id               String   @id @default(cuid())
+  releaseId        String
+  sourceQuestionId Int?
+  payload          Json
+
+  @@index([releaseId])
+}
+
+model CareerSynergyDraft {
+  id        String   @id @default(cuid())
+  releaseId String
+  careerKey String
+  category  String
+  score     Int
+
+  @@index([releaseId, careerKey])
+}
+
+model CompetencyGuideDraft {
+  id            String   @id @default(cuid())
+  releaseId     String
+  sourceGuideKey String?
+  payload       Json
+
+  @@index([releaseId])
+}
+
+model AdminAuditLog {
+  id          String   @id @default(cuid())
+  adminUserId String?
+  action      String
+  targetType  String
+  targetId    String?
+  beforeJson  Json?
+  afterJson   Json?
+  createdAt   DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([action, targetType])
 }

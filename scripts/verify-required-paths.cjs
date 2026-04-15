@@ -10,7 +10,8 @@ const mirroredPhaseFiles = [
   'PHASE-4-quiz-flow-ui.md',
   'PHASE-5-results-core.md',
   'PHASE-6-results-extended.md',
-  'PHASE-7-seo-admin-deploy.md'
+  'PHASE-7-seo-admin-deploy.md',
+  'PHASE-8-db-source-of-truth-migration.md'
 ];
 
 const requiredLegacyFiles = [

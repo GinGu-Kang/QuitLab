@@ -13,6 +13,8 @@ Phase 1 (세팅+시딩)
                                     └── Phase 6 (결과 확장) ←─┘
                                           │
                                     Phase 7 (SEO+관리자+배포)
+                                          │
+                                    Phase 8 (DB 원본 전환+CMS)
 ```
 
 ## Phase 요약
@@ -26,6 +28,7 @@ Phase 1 (세팅+시딩)
 | [5](PHASE-5-results-core.md) | ~12-15 | 결과 추천+분석근거 탭 | 없음 |
 | [6](PHASE-6-results-extended.md) | ~15-18 | 결과 가이드+미래+이메일 | **Resend 셋업** |
 | [7](PHASE-7-seo-admin-deploy.md) | ~15-20 | SEO, GA4, 관리자, 배포 | **GA4/Vercel** |
+| [8](PHASE-8-db-source-of-truth-migration.md) | ~18-25 | DB 원본 전환, snapshot, 업종 CMS | **운영 정책 확정** |
 
 ## 실행 순서
 
@@ -34,6 +37,7 @@ Phase 1 (세팅+시딩)
 3. **Phase 5**: 1+2+4 완료 후 진행
 4. **Phase 6**: 3+5 완료 + Resend 셋업 후 진행
 5. **Phase 7**: 모든 기능 완료 후 프로덕션 배포
+6. **Phase 8**: 운영 고도화 단계에서 DB source of truth + 관리자 CMS 전환
 
 ## 커밋 컨벤션
 

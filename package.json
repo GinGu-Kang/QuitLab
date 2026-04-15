@@ -8,9 +8,18 @@
     "start": "next start",
     "lint": "next lint",
     "seed": "tsx scripts/seed-from-excel.ts",
+    "import:master-data": "tsx scripts/import-master-data-from-json.ts",
+    "validate:master-data": "tsx scripts/validate-master-data-release.ts",
+    "preview:release-diff": "tsx scripts/preview-release-diff.ts",
     "test": "npm run verify:repo && vitest run",
     "test:watch": "vitest",
-    "verify:repo": "node scripts/verify-required-paths.cjs"
+    "verify:repo": "node scripts/verify-required-paths.cjs",
+    "notify:send": "node scripts/send-imessage.cjs",
+    "notify:test": "node scripts/send-imessage.cjs --message \"Quit-codex 테스트 메시지입니다. 개발 완료 알림 설정이 정상 동작하면 이 문자가 도착합니다.\"",
+    "notify:done": "node scripts/dev-complete-notify.cjs",
+    "notify:telegram:send": "node scripts/send-telegram.cjs",
+    "notify:telegram:test": "node scripts/send-telegram.cjs --message \"Quit-codex 텔레그램 테스트 메시지입니다. 개발 완료 알림 설정이 정상 동작하면 이 메시지가 도착합니다.\"",
+    "notify:telegram:updates": "node scripts/get-telegram-updates.cjs"
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",

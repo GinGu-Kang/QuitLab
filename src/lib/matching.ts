@@ -1,6 +1,4 @@
-import careerSynergyJson from '@/data/career-synergy.json';
-import personalityQuestionsJson from '@/data/personality-questions.json';
-import startupItemsJson from '@/data/startup-items.json';
+import { DEFAULT_MASTER_DATA } from '@/lib/master-data-defaults';
 import {
   COMPETENCY_FULL_LABELS,
   COMPETENCY_KEYS,
@@ -8,14 +6,11 @@ import {
   type CareerSynergyMatrix,
   type DiagnoseInput,
   type MatchResult,
+  type PublishedMasterData,
   type PersonalityQuestion,
   type StartupItem
 } from '@/types';
 import { clamp, parseMonthlyRevenueRange, parsePercentageRange } from '@/lib/utils';
-
-const startupItems = startupItemsJson as StartupItem[];
-const careerSynergy = careerSynergyJson as CareerSynergyMatrix;
-const personalityQuestions = personalityQuestionsJson as PersonalityQuestion[];
 
 const CATEGORY_ALIASES: Record<string, string[]> = {
   'F&B': ['F&B', '음식', '카페', '프랜차이즈'],
@@ -218,7 +213,11 @@ function calcCompetencyFit(userScores: number[], item: StartupItem) {
   return maxPossible > 0 ? (total / maxPossible) * 100 : 0;
 }
 
-function calcPersonalityFit(answers: DiagnoseInput['personalityAnswers'], item: StartupItem) {
+function calcPersonalityFit(
+  answers: DiagnoseInput['personalityAnswers'],
+  item: StartupItem,
+  personalityQuestions: PersonalityQuestion[]
+) {
   const matches = answers.reduce((count, answer, index) => {
     const question = personalityQuestions[index];
     if (!question) return count;
@@ -229,7 +228,11 @@ function calcPersonalityFit(answers: DiagnoseInput['personalityAnswers'], item: 
   return (matches / Math.max(answers.length, 1)) * 100;
 }
 
-function calcCareerSynergy(career: DiagnoseInput['hardFilter']['career'], category: string) {
+function calcCareerSynergy(
+  career: DiagnoseInput['hardFilter']['career'],
+  category: string,
+  careerSynergy: CareerSynergyMatrix
+) {
   const score = careerSynergy[career]?.[category] ?? 0;
   return score * 25;
 }
@@ -314,13 +317,13 @@ export function getEntrepreneurType(scores: number[]) {
   return { name: '올라운더 CEO', desc: '골고루 잘하는 균형 잡힌 타입' };
 }
 
-export function matchStartups(input: DiagnoseInput): MatchResult[] {
-  const filtered = applyHardFilters(startupItems, input);
+export function matchStartups(input: DiagnoseInput, masterData: PublishedMasterData = DEFAULT_MASTER_DATA): MatchResult[] {
+  const filtered = applyHardFilters(masterData.startupItems, input);
 
   const scored = filtered.map(({ item, warningTags, penalty }) => {
     const competencyFit = calcCompetencyFit(input.competencyScores, item);
-    const personalityFit = calcPersonalityFit(input.personalityAnswers, item);
-    const careerFit = calcCareerSynergy(input.hardFilter.career, item.category);
+    const personalityFit = calcPersonalityFit(input.personalityAnswers, item, masterData.personalityQuestions);
+    const careerFit = calcCareerSynergy(input.hardFilter.career, item.category, masterData.careerSynergy);
     const marketAttractiveness = calcMarketAttractiveness(item);
 
     const finalScore = clamp(

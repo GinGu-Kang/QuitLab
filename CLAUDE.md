@@ -77,6 +77,8 @@ Landing → Step 1 (Hard Filters) → Step 2 (24 competency questions) → Step 
 - Competency scores: each competency has 2 questions, averaged to get final 1–5 score per competency
 - `plans/` paths are externally referenced; do not remove, rename, or relocate them
 - Run `npm run verify:repo` after doc moves/renames; `build` and `test` now enforce this automatically
+- After finishing implementation, verification, and before the final user-facing wrap-up, send the completion summary to Telegram with `npm run notify:done -- --summary "<short Korean summary>"`.
+- The completion summary must include changed area, user-visible impact, and verification status, and must never include secrets such as tokens or passwords.
 
 
 

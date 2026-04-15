@@ -1,12 +1,16 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
 
-const baseUrl = process.env.APP_URL || 'http://localhost:3000';
+const baseUrl = process.env.APP_URL || 'http://127.0.0.1:3000';
 const chromeExecutable = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
 async function clickByText(page, text) {
-  const locator = page.locator('button').filter({ hasText: text }).first();
+  const escaped = typeof text === 'string' ? text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') : null;
+  const locator = typeof text === 'string'
+    ? page.getByRole('button', { name: new RegExp(escaped) }).first()
+    : page.getByRole('button', { name: text }).first();
   await locator.waitFor({ state: 'visible', timeout: 30000 });
+  await locator.scrollIntoViewIfNeeded();
   await locator.click();
 }
 
@@ -17,7 +21,9 @@ async function main() {
   });
 
   const page = await (await browser.newContext({ viewport: { width: 1280, height: 1000 }, locale: 'ko-KR' })).newPage();
-  await page.goto(baseUrl, { waitUntil: 'networkidle' });
+  await page.goto(baseUrl, { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('text=퇴사하면 나는', { timeout: 30000 });
+  await page.waitForTimeout(1500);
   await clickByText(page, '내 운명 가게 찾기');
   await page.waitForURL((url) => url.toString().includes('/diagnose/step-1'), { timeout: 15000 });
 

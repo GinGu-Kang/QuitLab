@@ -22,7 +22,7 @@ import { recordEvent } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
 import { SectionCard } from '@/components/ui/SectionCard';
 import { useDiagnoseStore } from '@/store/diagnose-store';
-import type { PersistedResult, ResultTabKey } from '@/types';
+import type { CompetencyGuide, PersistedResult, ResultTabKey } from '@/types';
 
 const tabs: { key: ResultTabKey; label: string; color: string }[] = [
   { key: 'match', label: '🏆 추천', color: '#0D9488' },
@@ -31,7 +31,13 @@ const tabs: { key: ResultTabKey; label: string; color: string }[] = [
   { key: 'future', label: '✨ 미래상상', color: '#14B8A6' }
 ];
 
-export function ResultPageClient({ result }: { result: PersistedResult }) {
+export function ResultPageClient({
+  result,
+  competencyGuide
+}: {
+  result: PersistedResult;
+  competencyGuide: CompetencyGuide[];
+}) {
   const [activeTab, setActiveTab] = useState<ResultTabKey>('match');
   const resetDiagnose = useDiagnoseStore((state) => state.reset);
 
@@ -62,7 +68,7 @@ export function ResultPageClient({ result }: { result: PersistedResult }) {
         <div className="space-y-4">
           <WhyRecommended results={result.top5Results} userScores={userScores} />
           <CompetencyGap result={topResult} userScores={userScores} />
-          <SupplementGuide result={topResult} />
+          <SupplementGuide result={topResult} guides={competencyGuide} />
           <RiskWarning results={result.top5Results} />
           <ScoreBreakdown results={result.top5Results} />
         </div>
@@ -87,7 +93,7 @@ export function ResultPageClient({ result }: { result: PersistedResult }) {
         <EmailCollector sessionId={result.sessionId} />
       </div>
     );
-  }, [activeTab, nickname, result.sessionId, result.top5Results, userScores, topResult]);
+  }, [activeTab, competencyGuide, nickname, result.sessionId, result.top5Results, userScores, topResult]);
 
   return (
     <div className="mx-auto max-w-[1120px] px-4 py-10">

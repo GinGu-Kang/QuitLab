@@ -26,6 +26,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <Link href="/admin" className="text-sm text-quiz-text-secondary hover:text-quiz-text">
             대시보드
           </Link>
+          <Link href="/admin/releases" className="text-sm text-quiz-text-secondary hover:text-quiz-text">
+            릴리스
+          </Link>
+          <Link href="/admin/catalog" className="text-sm text-quiz-text-secondary hover:text-quiz-text">
+            업종 CMS
+          </Link>
           <Link href="/admin/customers" className="text-sm text-quiz-text-secondary hover:text-quiz-text">
             고객 목록
           </Link>

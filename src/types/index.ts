@@ -243,6 +243,9 @@ export interface PersistedResult {
   comicImageUrl?: string | null;
   userAgent?: string | null;
   ipHash?: string | null;
+  masterDataReleaseId?: string | null;
+  masterDataVersion?: string | null;
+  matchingEngineVersion?: string | null;
 }
 
 export interface ContactInput {
@@ -317,4 +320,93 @@ export interface AppStorageShape {
   contacts: PersistedContact[];
   events: PersistedAnalyticsEvent[];
   admins: { email: string; passwordHash: string; createdAt: string }[];
+  masterDataReleases: StoredMasterDataRelease[];
+  adminAuditLogs: AdminAuditLogEntry[];
+}
+
+export type MasterDataReleaseStatus = 'draft' | 'published' | 'archived';
+export type DraftRowStatus = 'active' | 'inactive';
+
+export interface DraftStartupItem extends StartupItem {
+  draftId: string;
+  releaseId: string;
+  sourceItemId: number | null;
+  rowStatus: DraftRowStatus;
+}
+
+export interface MasterDataDraftPayload {
+  startupItems: DraftStartupItem[];
+  competencyQuestions: CompetencyQuestion[];
+  hardFilters: HardFilter[];
+  personalityQuestions: PersonalityQuestion[];
+  careerSynergy: CareerSynergyMatrix;
+  competencyGuide: CompetencyGuide[];
+}
+
+export interface PublishedMasterData {
+  releaseId: string;
+  version: string;
+  startupItems: StartupItem[];
+  competencyQuestions: CompetencyQuestion[];
+  hardFilters: HardFilter[];
+  personalityQuestions: PersonalityQuestion[];
+  careerSynergy: CareerSynergyMatrix;
+  competencyGuide: CompetencyGuide[];
+}
+
+export interface MasterDataReleaseRecord {
+  id: string;
+  version: string;
+  status: MasterDataReleaseStatus;
+  snapshotJson: PublishedMasterData | null;
+  baseReleaseId: string | null;
+  notes: string | null;
+  createdById: string | null;
+  createdAt: string;
+  publishedAt: string | null;
+}
+
+export interface StoredMasterDataRelease extends MasterDataReleaseRecord {
+  draftData: MasterDataDraftPayload;
+}
+
+export interface MasterDataReleaseSummary extends MasterDataReleaseRecord {
+  itemCount: number;
+  activeItemCount: number;
+}
+
+export interface MasterDataValidationIssue {
+  severity: 'error' | 'warning';
+  code: string;
+  message: string;
+  field?: string;
+  itemName?: string;
+}
+
+export interface ReleaseDiffPreviewItem {
+  scenarioIndex: number;
+  previousTop1: string | null;
+  nextTop1: string | null;
+  changed: boolean;
+}
+
+export interface MasterDataValidationReport {
+  releaseId: string;
+  version: string;
+  validatedAt: string;
+  issueCount: number;
+  distinctTop1Count: number;
+  issues: MasterDataValidationIssue[];
+  sampleDiff: ReleaseDiffPreviewItem[];
+}
+
+export interface AdminAuditLogEntry {
+  id: string;
+  adminUserId: string | null;
+  action: string;
+  targetType: string;
+  targetId: string | null;
+  beforeJson: unknown | null;
+  afterJson: unknown | null;
+  createdAt: string;
 }

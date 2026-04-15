@@ -1,9 +1,12 @@
-import competencyGuideJson from '@/data/competency-guide.json';
 import type { CompetencyGuide as CompetencyGuideItem, MatchResult } from '@/types';
 
-const guides = competencyGuideJson as CompetencyGuideItem[];
-
-export function SupplementGuide({ result }: { result: MatchResult }) {
+export function SupplementGuide({
+  result,
+  guides
+}: {
+  result: MatchResult;
+  guides: CompetencyGuideItem[];
+}) {
   const relevant = result.competencyGap
     .map((gap) => guides.find((guide) => guide.competency === gap.competency))
     .filter(Boolean) as CompetencyGuideItem[];

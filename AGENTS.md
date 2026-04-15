@@ -31,18 +31,19 @@ Codex, Claude Code, Cursor Agent 같은 도구가 이 프로젝트를 빠르게 
 
 ## 2. 핵심 원칙
 
-### 엑셀이 원본이다
+### DB release가 원본이다
 
 가장 중요한 규칙:
 
-- `startup_guide_v2.xlsx`가 single source of truth다.
-- 질문, 업종, 경력 시너지, 역량 가이드, 매칭 기준은 가능하면 엑셀 기준으로 유지해야 한다.
-- `src/data/*.json`은 빌드 타임 산출물이다.
-- 엑셀 수정 후에는 반드시 `npm run seed`를 다시 돌려야 한다.
+- 운영 원본은 `MasterDataRelease` + draft 테이블이다.
+- 공개 앱은 draft가 아니라 published snapshot만 읽는다.
+- `startup_guide_v2.xlsx`와 `src/data/*.json`은 초기 import / fallback / archive 용도다.
+- DB가 비어 있거나 사용할 수 없을 때만 `src/data/*.json` fallback을 읽는다.
 
 즉:
 
-- JSON을 직접 손대기보다 `scripts/seed-from-excel.ts`를 수정하는 쪽이 우선이다.
+- 운영 수정은 `/admin/releases`, `/admin/catalog`에서 한다.
+- 엑셀 구조를 바꾸거나 초기 데이터를 다시 뽑아야 할 때만 `scripts/seed-from-excel.ts`와 `startup_guide_v2.xlsx`를 건드린다.
 
 ### 결과는 설명 가능해야 한다
 
@@ -101,10 +102,14 @@ Codex, Claude Code, Cursor Agent 같은 도구가 이 프로젝트를 빠르게 
 중요 파일:
 
 - `src/lib/matching.ts`
+- `src/lib/master-data.ts`
+- `src/lib/master-data-admin.ts`
 - `src/lib/repository.ts`
 - `src/lib/validation.ts`
 - `src/store/diagnose-store.ts`
 - `scripts/seed-from-excel.ts`
+- `scripts/import-master-data-from-json.ts`
+- `scripts/validate-master-data-release.ts`
 - `startup_guide_v2.xlsx`
 - `IMPLEMENTATION_PLAN.md`
 - `CLAUDE.md`
@@ -125,6 +130,8 @@ Codex, Claude Code, Cursor Agent 같은 도구가 이 프로젝트를 빠르게 
 npm install
 npm run dev
 npm run seed
+npm run import:master-data
+npm run validate:master-data -- --release <id-or-version>
 npm run build
 npm test
 npm run lint
@@ -167,7 +174,7 @@ git config http.postBuffer 524288000
 
 ### 저장소 계층은 fallback이 있다
 
-`src/lib/repository.ts`는 두 모드로 동작한다.
+`src/lib/repository.ts`와 `src/lib/master-data.ts`는 두 모드로 동작한다.
 
 1. Prisma 사용 가능
 2. 로컬 JSON fallback 사용
@@ -180,6 +187,22 @@ fallback 파일:
 
 - 로컬 개발에서는 DB 환경변수가 없어도 동작해야 한다.
 - 에이전트는 개발 중 DB가 없다고 바로 막히지 말고 fallback 구조를 유지해야 한다.
+
+### 마스터 데이터는 release 단위로 발행된다
+
+핵심 구조:
+
+1. draft release 생성
+2. 업종 CMS에서 수정
+3. validation 실행
+4. publish
+5. 공개 앱은 published snapshot 사용
+
+주의:
+
+- draft 변경은 즉시 공개 반영되면 안 된다.
+- publish 시에만 새 진단 결과에 반영된다.
+- 과거 `UserResult`는 `masterDataReleaseId`, `masterDataVersion`, `matchingEngineVersion`을 같이 저장한다.
 
 ### 관리자 로컬 계정이 있다
 
@@ -345,6 +368,28 @@ node scripts/verify-diversity-playwright.cjs
 
 - 고정 시나리오 40개 기준 15개 서로 다른 1위 결과 확인
 
+## 11.5. 완료 보고 규칙
+
+개발 작업을 끝냈다고 판단하기 전에는 아래 순서를 따른다.
+
+1. `npm run lint`
+2. `npm test`
+3. `npm run build`
+4. 텔레그램 완료 보고 전송
+
+이 저장소는 완료 보고를 텔레그램으로 보내도록 설정돼 있다.
+에이전트는 작업 완료 후 최종 응답 전에 반드시 아래 명령으로 완료 보고를 보낸다.
+
+```bash
+npm run notify:done -- --summary "변경 파일/기능 요약, 사용자 영향, 추가 검증 여부"
+```
+
+원칙:
+
+- 완료 보고에는 최소한 `무엇을 바꿨는지`, `사용자에게 어떤 영향이 있는지`, `어떤 검증을 통과했는지`를 짧게 포함할 것
+- 텔레그램 보고가 실패하면 실패 원인을 최종 응답에 명시할 것
+- 비밀값이나 토큰 원문은 메시지에 포함하지 말 것
+
 ## 12. 수정 우선순위
 
 작업할 때 우선순위는 다음과 같다.
@@ -390,12 +435,14 @@ node scripts/verify-diversity-playwright.cjs
 - 매칭 결과 다양성과 결정론성을 둘 다 확인한다
 - 필요하면 스크린샷이나 Playwright 검증까지 같이 남긴다
 - 구현과 문서가 다르면 둘 중 무엇이 기준인지 명시한다
+- 작업 종료 전 텔레그램 완료 보고까지 보내고 최종 응답한다
 
 나쁜 수정:
 
 - 화면만 바꾸고 API나 저장 구조는 확인하지 않는다
 - 알고리즘 숫자를 바꾸고 검증하지 않는다
 - build/test/lint 없이 끝냈다고 판단한다
+- 텔레그램 완료 보고 없이 작업을 끝냈다고 판단한다
 
 ## 16. 참고 문서
 

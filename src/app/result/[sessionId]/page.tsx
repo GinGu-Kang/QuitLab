@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { ResultPageClient } from '@/components/result/ResultPageClient';
+import { getMasterDataByReleaseId } from '@/lib/master-data';
 import { getResultBySession } from '@/lib/repository';
 
 export async function generateMetadata({
@@ -30,5 +31,7 @@ export default async function ResultPage({ params }: { params: { sessionId: stri
     notFound();
   }
 
-  return <ResultPageClient result={result} />;
+  const masterData = await getMasterDataByReleaseId(result.masterDataReleaseId);
+
+  return <ResultPageClient result={result} competencyGuide={masterData.competencyGuide} />;
 }
